@@ -1,0 +1,881 @@
+/*
+Theme Name: Expert Petroleum
+Author: High Contrast
+*/
+
+@media (min-width: 1300px){
+
+  .container {
+      max-width: 1488px;
+      margin-right: 280px;
+      margin-left: 152px;
+  }
+
+}
+
+.container {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.row{
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.col-md-12, .col-md-8, .col-md-6, .col-md-4,.col-md-3, .col-md-2,
+ .col-lg-12, .col-lg-8, .col-lg-6, .col-lg-4, .col-lg-3, .col-lg-2{
+  padding-right: 0;
+  padding-left: 0;
+}
+
+body, ul, li, article, p, h1, h2, h3, h4, h5, a{
+    margin: 0;
+    padding: 0;
+    font-family: 'Adam', sans-serif !important;
+    text-decoration: none;
+    list-style: none;
+    color: #013F45;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+hr {
+margin: 0;
+border: 0;
+border-top: 4px solid #013F45;
+}
+
+.icon {
+    position: relative;
+}
+
+.icon:after {
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    background: transparent url("img/icon.png") 100%/cover no-repeat;
+    bottom: -9%;
+    right: 2%;
+}
+
+.icon1 {
+    position: relative;
+}
+
+.icon1:after {
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    background: transparent url("img/icon1.png") 100%/cover no-repeat;
+    bottom: -40%;
+    right: 25%;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+}
+
+.vh-100 {
+    height: 100vh;
+}
+
+.stories, .services, .single, .page, .media, .related, .footer {
+    position: relative;
+    background-color: #fff;
+    z-index: 10;
+}
+
+/*
+****************  Nav Menu CSS  ****************
+*/
+
+nav{
+    position: fixed;
+    width: 100%;
+    margin-top: 168px;
+    z-index: 9;
+}
+.nav-menu{
+    flex-wrap: nowrap;
+}
+
+.logo{
+  position: relative;
+    flex-grow: 4;
+    padding-left: 152px;
+    margin-bottom: 20px;
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 22px;
+
+}
+
+.nav-menu .logo:after{
+    content: '';
+    position: absolute;
+    top: -96px;
+    left: 512px;
+    width: 100px;
+    height: 1px;
+    background-color: #013F45;
+
+}
+
+.menu{
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+.menu-btn {
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 32px;
+  height: 5px;
+  background-color: #FE5000;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.bar3 {
+    width: 16px;
+}
+
+.site-menu{
+    display: none;
+    position: fixed;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+
+}
+
+.show-menu {
+    display: block !important;
+}
+.menu-bar{
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 168px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 32px;
+}
+.open-menu {
+    cursor: pointer;
+}
+.hide-nav {
+    display: none !important;
+}
+
+.hide-scroll {
+    overflow: hidden;
+}
+
+.site-menu  .parrent-li > li  {
+    display: inline-block;
+    max-width: 208px;
+    margin-right: 1.5rem;
+}
+
+.site-menu  .parrent-li > li img{
+    width: 208px;
+    height: 121px;;
+
+    margin-bottom: 53px;
+}
+
+.site-menu  .parrent-li > li a{
+    color: #FE5000;
+}
+.sticky {
+    position: sticky;
+    top: 100px;
+}
+
+/*
+****************  Line CSS  ****************
+*/
+.line{
+    position: absolute;
+    height: 1px;
+    background-image: linear-gradient(to right, #013F45 , #FE5000);
+    transform: rotate(-70deg);
+}
+
+ .large {
+    width: 665px;
+    left: -190px;
+    bottom: 250px;
+    transform: rotate(-70deg);
+}
+
+ .medium {
+    width: 465px;
+    left: 50px;
+    bottom: 391px;
+    transform: rotate(-130deg);
+}
+
+ .small {
+    width: 365px;
+    left: -190px;
+    bottom: 250px;
+    transform: rotate(-70deg);
+}
+
+.special {
+    width: 565px;
+    left: 50%;
+    bottom: 50%;
+    transform: rotate(-50deg);
+}
+
+.line:before{
+    content: '';
+    position: absolute;
+    top: -9.25px;
+    left: -18.5px;
+    width: 18.5px;
+    height: 18.5px;
+    background-color: #013F45;
+}
+.line:after{
+    content: '';
+    position: absolute;
+    top:  -9.25px;
+    right: -18.5px;
+    width: 18.5px;
+    height: 18.5px;
+    border-radius: 50px;
+    background-color: #FE5000;
+}
+
+
+
+/*
+****************  Cover Section CSS  ****************
+*/
+
+.cover {
+    width: 100%;
+    height: 100vh;
+    background: #fff url('img/cover.png') right/contain no-repeat;
+}
+
+.cover-content {
+    position: relative;
+    padding-right: 165px;
+    padding-top: 280px;
+}
+
+.cover p {
+    position: relative;
+    width: 200px;
+    margin-bottom: 140px;
+    font-size: 12px;
+}
+
+.cover h1, .large-post h1 a {
+    position: relative;
+    width: 400px;
+    color:  #FE5000;
+    font-size: 85px;
+    font-weight: 800;
+    line-height: 96px;
+}
+
+.cover h1:before{
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    width: 1px;
+    height: 200px;
+    background-color: #013F45;
+
+}
+
+
+/*
+****************  Posts Formats CSS  ****************
+*/
+
+
+.large-post a, .column-post a {
+    position: relative;
+    color: #003A40;
+    font-size: 18px;
+    font-weight: bold;
+}
+.read-more:after{
+    content: "→";
+    position: absolute;
+    top: -2px;
+    right: -20px;
+    color: #FE5000;
+}
+
+.large-post img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.large-post h1 {
+    width: 500px;
+}
+.align-title {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.large-post .align-title h1 {
+    position: relative;
+    right: 240px;
+    padding-top: 30px;
+}
+
+.large-post .align-title h1:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    left: 240px;
+    top: 0px;
+    background-color: #013F45;
+}
+
+.large-post .align-title .date {
+    padding-top: 45px;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+.column-post {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-post img{
+    width: 100%;
+    height: 238px;
+    object-fit: cover;
+}
+
+.column-post h5{
+    padding-top: 47px;
+    margin-bottom: 24px;
+}
+
+.column-post .description {
+  margin-top: auto;
+}
+
+ .small-post{
+     display: flex;
+ }
+ .small-post img{
+    width:100%;
+    height: 240px;
+    object-fit: cover;
+}
+.column-post h5, .small-post h5{
+    position: relative;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+ .small-post .align-title{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+ .small-post h5{
+    margin-top: 10px;
+    width: 188px;
+}
+ .small-post h5:before, .more-stories a:before{
+    content:"";
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    height: 4px;
+    background-color: #013F45;
+}
+ .small-post .date{
+     position: relative;
+     margin-top: auto;
+     margin-bottom: -3px;
+ }
+
+ /* .small-post .date:after{
+     content: "→";
+     position: absolute;
+     top: -2px;
+     right: -60px;
+     cursor: pointer;
+ } */
+
+ .regular-post h5 {
+     width: 100%;
+     font-size: 27px;
+     font-weight: normal;
+     line-height: 36px;
+     letter-spacing: -0.7px;
+ }
+
+.regular-post h5:before {
+     height: 1px;
+ }
+
+.regular-post img {
+     height: 116px;
+ }
+
+ .date {
+     color: #FE5000;
+     font-size: 12px;
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     margin-top: auto;
+ }
+ .more-stories {
+     position: relative;
+     width: 100%;
+     margin-top: 80px;
+
+ }
+ .more-stories a  {
+     display: flex;
+     justify-content: center;
+     color:#FE5000;
+     font-size: 27px;
+     font-weight: 300;
+ }
+
+ .more-stories a span {
+     color: #013F45;
+     margin-left: 30px;
+ }
+
+.see-all{
+    position: relative;
+    width: 208px;
+    margin-top: 80px;
+    margin-left: 260px;
+
+}
+.see-all a  {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    color:#FE5000;
+    font-size: 27px;
+    font-weight: 300;
+}
+
+.see-all a span {
+    color: #013F45;
+}
+.see-all:before {
+    content:"";
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    height: 4px;
+    background-color: #013F45;
+}
+
+
+/*
+****************  Stories Formats CSS  ****************
+*/
+.stories {
+    padding-top: 140px;
+}
+.content-menu {
+    font-size: 27px;
+}
+.content-menu h5{
+    color:  #FE5000;
+    padding-bottom: 10px;
+    font-weight: 600;
+    line-height: 36px;
+
+}
+.content-menu ul li {
+    font-weight: 300;
+}
+
+.stories img {
+    width: 100%;
+}
+
+
+
+/*
+****************  Services Section CSS  ****************
+*/
+
+.services {
+    padding-top: 140px;
+}
+.services-cover img {
+    background: url('img/sub-section.png') top/cover no-repeat;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: top;
+
+}
+.services-title {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    position: relative;
+    top: -155px;
+}
+.services h2 {
+        width: 60%;
+    color:  #FE5000;
+    font-size: 91px;
+    line-height: 96px;
+
+}
+
+/*
+****************  Footer Section CSS  ****************
+*/
+
+.footer{
+    padding-top: 330px;
+    font-size: 12px;
+}
+
+.footer .copyright p{
+    padding-right: 75px;
+}
+
+#copyright-media {
+    padding: 30px 0;
+}
+.footer .footer-menu  .parrent-li > li{
+    display: inline-block;
+    margin-right: 70px;
+}
+
+.sub-menu{
+    margin-top: 20px;
+}
+
+.footer .footer-menu  .parrent-li li a {
+    color: #013F45;
+}
+
+.footer .footer-menu  .parrent-li li ul li{
+        display: block;
+}
+/*
+****************  Responsive CSS  ****************
+*/
+
+
+@media only screen and (max-width: 796px) {
+    .small-post img, .small-post h5 {
+        width: 100%;
+    }
+    .cover {
+        background-position: top;
+    }
+}
+
+
+
+/*
+****************  Page CSS  ****************
+*/
+
+.page {
+    padding-top: 165px;
+}
+
+.cover-page {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 240px;
+}
+
+.cover-page-bg {
+  position: relative;
+  background: url('img/sub-section.png') top/cover no-repeat;
+  width: 100%;
+  height: 580px;
+}
+
+.cover-page h1{
+    position: relative;
+    top: -45px;
+    color:  #FE5000;
+    font-size: 85px;
+    font-weight: 800;
+    line-height: 96px;
+}
+
+
+.cover-page h1:before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    width: 1px;
+    height: 100px;
+    background-color: #013F45;
+}
+
+
+.page-content h1,  .title h1{
+    position: relative;
+    top: 0;
+    font-size: 85px;
+    font-weight: 300;
+    line-height: 96px;
+    letter-spacing: -4px;
+}
+.page-content h5 {
+    font-size: 27px;
+    line-height: 36px;
+    color: #FE5000;
+    padding: 2rem 0 3rem;
+}
+
+
+.page-content p {
+    font-size: 18px;
+    line-height: 24px;
+    padding-bottom: 2rem;
+}
+
+.page-content p strong {
+    font-weight: 800;
+}
+.page-content .small-text {
+    font-size: 12px;
+}
+
+.page-content .squared img{
+    width: 208px;
+    height: 240px;
+}
+
+.page-content .percent {
+    color: #FE5000;
+    font-weight: 800;
+    font-size: 91px;
+    margin: 15px 0 60px;
+}
+.page-content .percent span{
+    font-size: 32px;
+    position: absolute;
+    top: -15px;
+
+}
+
+.image img{
+   width: 100%;
+   height: 300px;
+   object-fit: cover;
+}
+
+.title {
+   display: flex;
+   justify-content: center;
+}
+
+.title h1{
+   color: #FE5000;
+}
+
+.articles, .press-releases {
+    width: 100%;
+    padding-top: 196px;
+}
+.articles article {
+    padding-bottom: 166px;
+}
+
+.articles article .title {
+    position: relative;
+    top: -55px;
+}
+
+.articles article .description p{
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.articles article .description p strong{
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/*
+****************  Overide Gutemberg CSS  ****************
+*/
+.wp-block-cover{
+    min-height: 240px;
+    overflow: unset;
+    margin-bottom: 100px;
+}
+
+.wp-block-cover .wp-block-cover-text{
+    position: absolute;
+    top: 70%;
+    padding-right: 60%;
+    font-size: 85px;
+    font-weight: 300;
+    line-height: 96px;
+    letter-spacing: -4px;
+    color: #FE5000;
+}
+
+.wp-block-button__link {
+    margin-left: 25%;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    border-top: 4px solid #013F45 !important;
+    font-size: 27px;
+    font-weight: 300;
+    color: #FE5000;
+}
+
+/*
+****************  Page MEDIA CSS  ****************
+*/
+.press-releases{
+    margin-bottom: 180px;
+}
+
+.reports {
+    margin-bottom: 68px;
+}
+.report img{
+    width: 100%;
+    height: 240px;
+}
+
+.report .file, .report .download {
+    color: #FE5000;
+}
+
+.report .download {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.report .download:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: -10px;
+    background-color: #013F45;
+}
+
+.media {
+    padding-bottom: 139px;
+}
+
+
+/*
+****************  Single Page CSS  ****************
+*/
+.content {
+    margin-top: 140px;
+}
+.post-meta {
+    font-size: 12px;
+}
+
+.people-in-story {
+    margin-top: 555px;
+}
+.people {
+    font-size: 12px;
+    margin-bottom: 40px;
+    padding-right: 10px;
+}
+.people img{
+    width: 88px;
+    height: 88px;
+}
+.people h6{
+    font-weight: bold;
+    color: #FE5000;
+}
+ .post-excerpt h1{
+    font-size: 91px;
+    font-weight: 300;
+    line-height: 96px;
+}
+.content p{
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.content p strong{
+    font-weight: bold;
+}
+
+.content img {
+    width: 170%;
+    position: relative;
+    right: 70%;
+    height: 479px;
+}
+
+.content .img-description{
+    position: relative;
+    color: #FE5000;
+    font-size: 71px;
+    line-height: 89px;
+    bottom: 145px;
+}
+
+.report-items  {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row;
+}
+.report-items li {
+    flex-basis: 100%;
+    margin: 0 1.5rem;
+}
+
+.report-items li:first-child{
+    margin-left: 0;
+}
+
+.report-items li:last-child{
+    margin-right: 0;
+}

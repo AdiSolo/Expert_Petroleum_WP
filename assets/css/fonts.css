@@ -1,0 +1,59 @@
+@font-face {
+font-family: 'Adam';
+src: url('../fonts/Adam-Ladd-Config-Regular.otf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Adam';
+src: url('../fonts/Adam-Ladd-Config-Bold-Regular.otf') format('truetype');
+font-weight: bold;
+font-style: normal;
+}
+@font-face {
+font-family: 'Adam';
+src: url('../fonts/Adam-Ladd-Config-Bold-Italic.otf') format('truetype');
+font-weight: bold;
+font-style: italic;
+}
+
+@font-face {
+font-family: 'Adam';
+src: url('../fonts/Adam-Ladd-Config-Alt-Light.otf') format('truetype');
+font-weight: 300;
+font-style: normal;
+}
+@font-face {
+font-family: 'Adam';
+src: url('../fonts/Adam-Ladd-Config-Alt-Light-Italic.otf') format('truetype');
+font-weight: 300;
+font-style: italic;
+}
+@font-face {
+font-family: 'Adam';
+src: url('../fonts/Adam-Ladd-Config-Alt-SemiBold.otf') format('truetype');
+font-weight: 600;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Adam';
+src: url('../fonts/Adam-Ladd-Config-Alt-SemiBold-Italic.otf') format('truetype');
+font-weight: 600;
+font-style: italic;
+}
+
+@font-face {
+font-family: 'Adam';
+src: url('../fonts/Adam-Ladd-Config-Alt-ExtraBold.otf') format('truetype');
+font-weight: 800;
+font-style: normal;
+}
+
+@font-face {
+font-family: 'Adam';
+src: url('../fonts/Adam-Ladd-Config-Alt-ExtraBold-Italic.otf') format('truetype');
+font-weight: 800;
+font-style: italic;
+}
