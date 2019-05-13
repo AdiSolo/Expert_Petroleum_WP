@@ -1,15 +1,41 @@
 <?php
-
+/*
+* Include Post Types file
+*/
 include('inc/post_type/post_type.php');
+
+/*
+* Add Theme Supports
+*/
 add_theme_support( 'post-thumbnails' );
 
+/*
+* Register Menu
+*/
+require_once('wp_bootstrap_navwalker.php');
 
+function register_my_menus() {
+  register_nav_menus(
+    array(
+      'header-menu' => __( 'Header Menu' )
+    )
+  );
+}
+add_action( 'init', 'register_my_menus' );
+
+/*
+* Connect Style and Sripts
+*/
 function petroleum_style() {
     wp_enqueue_style( 'bootsrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' );
     wp_enqueue_style( 'fonts-style', get_template_directory_uri() . '/assets/css/fonts.css' );
     wp_enqueue_style( 'style', get_stylesheet_uri() );
+
     wp_enqueue_style( 'accordion-style', get_template_directory_uri() . '/assets/css/accordion.css' );
-    //wp_enqueue_script( 'script-name', get_template_directory_uri() . '/assets//js/custom.js', array(), '1.0.0', true );
+
+    wp_deregister_script('jquery');
+	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js', array(), null, true);
+    wp_enqueue_script( 'custom', get_template_directory_uri() . '/assets//js/custom.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'petroleum_style' );
 
