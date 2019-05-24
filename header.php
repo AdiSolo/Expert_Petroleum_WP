@@ -6,11 +6,7 @@
 
         <title>Expert Petroleum</title>
 
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/fonts.css">
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css"> -->
-<?php wp_head(); ?>
-
+        <?php wp_head(); ?>
     </head>
     <header class="<?php echo (!is_front_page() && !is_single()) ? 'page-header' : ''; ?>">
         <nav class="nav-menu d-flex">
@@ -29,65 +25,19 @@
         <div class="site-menu">
             <div class="container">
                 <div class="menu-bar">
-                    <div class="menu-logo">xd</div>
-                    <div class="open-menu">x</div>
+                    <div class="menu-logo">XP</div>
+                    <div class="open-menu">X</div>
                 </div>
-                <ul class="parrent-li">
-                    <li>
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/cat-img1.png" alt="">
-                        <a href="page.html">SUSTAINABILITY</a>
-                        <ul class="sub-menu">
-                            <li>Safety</li>
-                            <li>Environment</li>
-                            <li>Communities</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/cat-img2.png" alt="">
-                        <a href="#">ORGANIZATION</a>
-                        <ul class="sub-menu">
-                            <li>Safety</li>
-                            <li>Environment</li>
-                            <li>Communities</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/cat-img3.png" alt="">
-                        <a href="#">SERVICES</a>
-                        <ul class="sub-menu">
-                            <li>Safety</li>
-                            <li>Environment</li>
-                            <li>Communities</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/cat-img4.png" alt="">
-                        <a href="#">OPERATIONS</a>
-                        <ul class="sub-menu">
-                            <li>Safety</li>
-                            <li>Environment</li>
-                            <li>Communities</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/cat-img6.png" alt="">
-                        <a href="<?php get_site_url(); ?>/media">NEWS & MEDIA</a>
-                        <ul class="sub-menu">
-                            <li>Safety</li>
-                            <li>Environment</li>
-                            <li>Communities</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <img src="<?php echo get_template_directory_uri(); ?>/img/cat-img7.png" alt="">
-                        <a href="<?php get_site_url(); ?>/stories">STORIES</a>
-                        <ul class="sub-menu">
-                            <li>Safety</li>
-                            <li>Environment</li>
-                            <li>Communities</li>
-                        </ul>
-                    </li>
-                </ul>
+                <?php
+                  /* Primary navigation Header */
+                    wp_nav_menu( array(
+                        'menu'             => 'header-menu',
+                        'menu_class'       => 'parrent-li ',
+                        'show_image'       => true,
+                        'walker'           => new Walker_Nav_Primary()
+                    )
+                    );
+                ?>
             </div>
         </div>
     </header>

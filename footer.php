@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-md-8">
                     <div class='footer-menu'>
-                            <ul class="parrent-li">
+                            <!-- <ul class="parrent-li">
                                 <li>
                                     <a href="#">SUSTAINABILITY</a>
                                     <ul class="sub-menu">
@@ -59,18 +59,19 @@
                                         <li>Communities</li>
                                     </ul>
                                 </li>
-                            </ul>
+                            </ul> -->
 
 
                             <?php
-                              // /* Primary navigation */
-                              //   wp_nav_menu( array(
-                              //       'menu'              => 'header-menu',
-                              //       'depth'             => 2,
-                              //       'container'         => 'div',
-                              //       'walker'            => new wp_bootstrap_navwalker()
-                              //   )
-                              //   );
+                              /* Primary navigation */
+                                wp_nav_menu( array(
+                                    'menu'             => 'header-menu',
+                                    'container'        => false,
+                                    'menu_class'       => 'parrent-li ',
+                                    'walker'           => new Walker_Nav_Primary(),
+                                    'show_image'     => false,
+                                )
+                                );
                             ?>
                     </div>
                 </div>

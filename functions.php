@@ -4,6 +4,8 @@
 */
 include('inc/post_type/post_type.php');
 
+
+
 /*
 * Add Theme Supports
 */
@@ -12,7 +14,8 @@ add_theme_support( 'post-thumbnails' );
 /*
 * Register Menu
 */
-require_once('wp_bootstrap_navwalker.php');
+// require_once('wp_bootstrap_navwalker.php');
+require_once('wp_nav_walker.php');
 
 function register_my_menus() {
   register_nav_menus(
@@ -46,3 +49,20 @@ function admin_style() {
   wp_enqueue_style( 'dahsboard-style', get_template_directory_uri() . '/assets/css/dashboard.css' );
 }
 add_action('admin_enqueue_scripts', 'admin_style');
+
+
+
+
+function my_custom_mime_types( $mimes ) {
+
+// New allowed mime types.
+$mimes['svg'] = 'image/svg+xml';
+$mimes['svgz'] = 'image/svg+xml';
+$mimes['doc'] = 'application/msword';
+
+// Optional. Remove a mime type.
+unset( $mimes['exe'] );
+
+return $mimes;
+}
+add_filter( 'upload_mimes', 'my_custom_mime_types' );

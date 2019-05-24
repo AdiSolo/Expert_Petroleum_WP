@@ -8,6 +8,6 @@
          found himself transformed in his
          bed into a ...
      </p>
-        <a href="#" class="read-more">READ MORE</a>
+        <a href="<?php echo $posts[1]['link']; ?>" class="read-more">READ MORE <span>→</span></a>
     </div>
 </article> <!-- End Column post -->

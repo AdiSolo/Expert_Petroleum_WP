@@ -7,31 +7,28 @@
 ?>
 
 <?php get_header(); ?>
-
+<?php if(have_posts()) : the_post(); ?>
     <body>
         <section class="container cover-page fixed">
-            <div class="cover-page-bg" style="  background: url('<?php echo get_template_directory_uri(); ?>/img/media-cover.png') top/cover no-repeat;">
-            </div>
-            <h1>NEWS&MEDIA</h1>
+            <div class="cover-page-bg" style="  background: url('<?php echo get_template_directory_uri(); ?>/img/media-cover.png') top/cover no-repeat;"></div>
+            <h1><?php the_title(); ?></h1>
         </section>
         <section class="vh-100"></section>
 
 <!-- Stories Section -->
-        <section class="media">
+        <section class="page media">
             <div class="container">
-                <div class="col-md-12">
+                <div class="col-md-12 px-0">
                         <div class="row">
-                            <div class="col-md-4 content-menu"> <!-- Left Menu START -->
+                            <div class="col-md-4 px-0 content-menu"> <!-- Left Menu START -->
                                 <h5>NEWS & MEDIA</h5>
                                 <ul>
-                                    <li>Press Releases</li>
-                                    <li>Reports</li>
-                                    <li>Media Library</li>
+                                    <?php get_template_part('templates/page-submenu'); ?>
                                 </ul>
 
                             </div>   <!-- Left Menu END -->
 
-                            <div class="col-md-8 content-block">  <!-- Right Content START -->
+                            <div class="col-md-8 px-0 content-block">  <!-- Right Content START -->
                                 <div class="row">
                                     <div class="headline">
                                         <div class=""></div>
@@ -50,19 +47,22 @@
                                     </div>
 
                                     <section class="press-releases">
-                                        <div class="image">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/media.png" alt="">
+                                        <div class="col-md-12">
+                                            <div class="image">
+                                                <img src="<?php echo get_template_directory_uri(); ?>/img/media.png" alt="">
+                                            </div>
                                         </div>
+
                                         <div class="title">
                                             <h1>Press Releases</h1>
                                         </div>
 
-                                        <article class="col-md-12 pb-5 regular-post">  <!-- Press realeases -->
+                                        <article class="col-md-12 px-0 pb-5 regular-post">  <!-- Press realeases -->
                                             <div class="row">
-                                                <div class="col-md-3 pl-0 pr-4">
+                                                <div class="col-md-3">
                                                     <img src="<?php echo get_template_directory_uri(); ?>/img/press1.png" class="post-img" alt="">
                                                 </div>
-                                                <div class="col-md-9 pl-4 align-title">
+                                                <div class="col-md-9 align-title">
                                                     <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
                                                     <div class="date">Bucharest / Feb 2019</div>
 
@@ -70,12 +70,12 @@
                                             </div>
                                         </article> <!-- End Press realeases -->
 
-                                        <article class="col-md-12 pb-5 regular-post">  <!-- Press realeases -->
+                                        <article class="col-md-12 px-0 pb-5 regular-post">  <!-- Press realeases -->
                                             <div class="row">
-                                                <div class="col-md-3 pl-0 pr-4">
+                                                <div class="col-md-3 ">
                                                     <img src="<?php echo get_template_directory_uri(); ?>/img/press2.png" class="post-img" alt="">
                                                 </div>
-                                                <div class="col-md-9 pl-4 align-title">
+                                                <div class="col-md-9 align-title">
                                                     <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
                                                     <div class="date">Bucharest / Feb 2019</div>
 
@@ -83,12 +83,12 @@
                                             </div>
                                         </article> <!-- End Press realeases -->
 
-                                        <article class="col-md-12 pb-5 regular-post">  <!-- Press realeases -->
+                                        <article class="col-md-12 px-0 pb-5 regular-post">  <!-- Press realeases -->
                                             <div class="row">
-                                                <div class="col-md-3 pl-0 pr-4">
+                                                <div class="col-md-3 ">
                                                     <img src="<?php echo get_template_directory_uri(); ?>/img/press3.png" class="post-img" alt="">
                                                 </div>
-                                                <div class="col-md-9 pl-4 align-title">
+                                                <div class="col-md-9 align-title">
                                                     <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
                                                     <div class="date">Bucharest / Feb 2019</div>
 
@@ -178,155 +178,12 @@
                         </div>
                     </div>
             </section>
+    <?php endif; ?>
 <!-- End Stories Section -->
 
-<!-- Services Section -->
-            <section class="related">
-                <div class="container related-content">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-4 content-menu">
-                                    <h5>RELATED STORIES</h5>
-                                    <ul>
-                                        <li>People</li>
-                                        <li>Sustainability</li>
-                                        <li>Technology</li>
-                                    </ul>
+<!-- Related Stories Section -->
 
-                            </div>
-                            <div class="col-md-8">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="row">
-                                          <article class="col-md-6 pb-5 small-post">  <!-- Small post -->
-                                              <div class="row">
-                                                  <div class="col-md-6 pr-4">
-                                                      <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
-                                                  </div>
-                                                  <div class="col-md-6 pl-4 align-title">
-                                                      <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                                      <div class="date">Bucharest / Feb 2019</div>
-
-                                                  </div>
-                                              </div>
-                                          </article> <!-- End Small post -->
-                                          <article class="col-md-6 pb-5 small-post">  <!-- Small post -->
-                                              <div class="row">
-                                                  <div class="col-md-6 pl-4 pr-4">
-                                                      <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
-                                                  </div>
-                                                  <div class="col-md-6 pl-4 align-title">
-                                                      <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                                      <div class="date">Bucharest / Feb 2019</div>
-
-                                                  </div>
-                                              </div>
-                                          </article> <!-- End Small post -->
-                                          <article class="col-md-6 pb-5 small-post">  <!-- Small post -->
-                                              <div class="row">
-                                                  <div class="col-md-6  pr-4">
-                                                      <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
-                                                  </div>
-                                                  <div class="col-md-6 pl-4 align-title">
-                                                      <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                                      <div class="date">Bucharest / Feb 2019</div>
-
-                                                  </div>
-                                              </div>
-                                          </article> <!-- End Small post -->
-                                          <article class="col-md-6 pb-5 small-post">  <!-- Small post -->
-                                              <div class="row">
-                                                  <div class="col-md-6 pl-4 pr-4">
-                                                      <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
-                                                  </div>
-                                                  <div class="col-md-6 pl-4 align-title">
-                                                      <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                                      <div class="date">Bucharest / Feb 2019</div>
-
-                                                  </div>
-                                              </div>
-                                          </article> <!-- End Small post -->
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-<!-- End Services Section -->
+<?php get_template_part('templates/related-stories'); ?>
 
 <!-- Footer Section -->
-            <section class="footer">
-                <div class="container">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="copyright">
-                                    <p>© 2005 - 2019 EXPERT PETROLEUM</p>
-                                    <p id="copyright-media" class="pr-5"> UTILIZAREA ORICARUI TIP DE CONȚINUT (TEXT SAU IMAGINE) DIN ACEST MATERIAL FARĂ PERMISIUNE SCRISĂ ESTE STRICT INTERZISĂ.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class='footer-menu'>
-                                        <ul class="parrent-li">
-                                            <li>
-                                                <a href="#">SUSTAINABILITY</a>
-                                                <ul class="sub-menu">
-                                                    <li>Safety</li>
-                                                    <li>Environment</li>
-                                                    <li>Communities</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">ORGANIZATION</a>
-                                                <ul class="sub-menu">
-                                                    <li>Safety</li>
-                                                    <li>Environment</li>
-                                                    <li>Communities</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">SERVICES</a>
-                                                <ul class="sub-menu">
-                                                    <li>Safety</li>
-                                                    <li>Environment</li>
-                                                    <li>Communities</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">OPERATIONS</a>
-                                                <ul class="sub-menu">
-                                                    <li>Safety</li>
-                                                    <li>Environment</li>
-                                                    <li>Communities</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">NEWS & MEDIA</a>
-                                                <ul class="sub-menu">
-                                                    <li>Safety</li>
-                                                    <li>Environment</li>
-                                                    <li>Communities</li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="#">STORIES</a>
-                                                <ul class="sub-menu">
-                                                    <li>Safety</li>
-                                                    <li>Environment</li>
-                                                    <li>Communities</li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-<!-- End Footer Section -->
-    </body>
-</html>
 <?php get_footer(); ?>

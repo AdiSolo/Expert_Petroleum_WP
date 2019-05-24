@@ -54,6 +54,14 @@ border: 0;
 border-top: 4px solid #013F45;
 }
 
+.blue {
+    color: #013F45 !important;
+}
+
+.orange {
+    color: #FE5000 !important;
+}
+
 .icon {
     position: relative;
 }
@@ -97,6 +105,17 @@ border-top: 4px solid #013F45;
     z-index: 10;
 }
 
+.hide{ display: none;}
+
+.show{ display: block !important;}
+
+.line-img, .icon-img {
+    position: absolute;
+}
+
+.icon-img {
+    width: 80px;
+}
 /*
 ****************  Nav Menu CSS  ****************
 */
@@ -189,7 +208,7 @@ nav{
 }
 
 .site-menu  .parrent-li > li  {
-    display: inline-block;
+    display: inline-table;
     max-width: 208px;
     margin-right: 1.5rem;
 }
@@ -201,12 +220,16 @@ nav{
     margin-bottom: 53px;
 }
 
-.site-menu  .parrent-li > li a{
+.site-menu  .menu-item-has-children > a{
     color: #FE5000;
 }
 .sticky {
     position: sticky;
     top: 100px;
+}
+
+.current_page_item > a  {
+    color: #FE5000 !important;
 }
 
 /*
@@ -324,11 +347,7 @@ nav{
     font-size: 18px;
     font-weight: bold;
 }
-.read-more:after{
-    content: "→";
-    position: absolute;
-    top: -2px;
-    right: -20px;
+.read-more > span{
     color: #FE5000;
 }
 
@@ -464,6 +483,7 @@ nav{
 
  }
  .more-stories a  {
+     position: relative;
      display: flex;
      justify-content: center;
      color:#FE5000;
@@ -479,7 +499,6 @@ nav{
 .see-all{
     position: relative;
     width: 208px;
-    margin-top: 80px;
     margin-left: 260px;
 
 }
@@ -504,6 +523,55 @@ nav{
     background-color: #013F45;
 }
 
+.wp-block-lazyblock-cover-image .cover-image{
+    position: relative;
+    min-height: 240px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 145px;
+}
+
+.wp-block-lazyblock-cover-image .cover-title{
+    position: relative;
+    top: -55px;
+    font-size: 85px;
+    font-weight: 300;
+    line-height: 96px;
+    letter-spacing: -4px;
+    color: #FE5000;
+    max-width: 67%;
+    margin: 0 auto;
+
+}
+.wp-block-lazyblock-cover-image .line-img {
+    position: absolute;
+}
+
+.wp-block-lazyblock-cover-image .line-img img{
+    width: auto;
+}
+.wp-block-lazyblock-cover-image  .icon-img {
+    position: absolute;
+}
+.wp-block-lazyblock-cover-image .cover-title  .icon-img img{
+    width: 80px;
+}
+.wp-block-lazyblock-ordered-list .order-list  {
+    position: relative;
+}
+.wp-block-lazyblock-ordered-list .order-list  strong {
+    font-weight: bold;
+}
+.wp-block-lazyblock-ordered-list .order-list span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 91px;
+    font-weight: 800;
+    color: #FE5000;
+    mix-blend-mode: multiply;
+}
 
 /*
 ****************  Stories Formats CSS  ****************
@@ -577,7 +645,7 @@ nav{
     padding: 30px 0;
 }
 .footer .footer-menu  .parrent-li > li{
-    display: inline-block;
+    display: inline-table;
     margin-right: 70px;
 }
 
@@ -590,7 +658,7 @@ nav{
 }
 
 .footer .footer-menu  .parrent-li li ul li{
-        display: block;
+    display: block;
 }
 /*
 ****************  Responsive CSS  ****************
@@ -649,15 +717,46 @@ nav{
     background-color: #013F45;
 }
 
+.page-content {
+    width: 100%;
+}
 
 .page-content h1,  .title h1{
     position: relative;
     top: 0;
-    font-size: 85px;
+    font-size: 5em;
     font-weight: 300;
     line-height: 96px;
     letter-spacing: -4px;
+    padding-bottom: 2rem;
 }
+
+
+.page-content h2 {
+    position: relative;
+    max-width: 208px;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 2rem 0;
+    color: #FE5000;
+}
+.page-content h2:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #013F45;
+}
+
+.page-content h4 {
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #FE5000;
+    padding-bottom: 2rem;
+}
+
+
 .page-content h5 {
     font-size: 27px;
     line-height: 36px;
@@ -675,6 +774,8 @@ nav{
 .page-content p strong {
     font-weight: 800;
 }
+
+
 .page-content .small-text {
     font-size: 12px;
 }
@@ -741,6 +842,7 @@ nav{
 .wp-block-cover{
     min-height: 240px;
     overflow: unset;
+    margin-top: 145px;
     margin-bottom: 100px;
 }
 
@@ -765,7 +867,39 @@ nav{
     font-weight: 300;
     color: #FE5000;
 }
+.wp-block-lazyblock-icon-widget .icon-widget{
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    max-width: 208px;
+    border-top: 4px solid #013F45;
+}
+.wp-block-lazyblock-icon-widget .icon-widget h3{
+    position: relative;
+    color: #FE5000;
+    font-weight: 800;
+    font-size: 91px;
+    margin: 15px 0 60px;
+}
 
+.wp-block-lazyblock-icon-widget .icon-widget h3 .icon-img {
+    position: absolute;
+}
+.wp-block-lazyblock-icon-widget .icon-widget h3 .icon-img img{
+    width: 80px;
+}
+
+.wp-block-lazyblock-icon-widget .icon-widget h3 .percent {
+    position: absolute;
+    top: 0;
+    font-size: 27px;
+}
+
+.wp-block-lazyblock-icon-widget .icon-widget p{
+    margin: 0;
+    margin-top: auto;
+    font-weight: bold;
+}
 /*
 ****************  Page MEDIA CSS  ****************
 */

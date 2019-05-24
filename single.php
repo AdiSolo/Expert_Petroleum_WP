@@ -13,11 +13,11 @@
         <section class="vh-100"></section>
 
 <!-- Stories Section -->
-        <section class="single">
+        <section class="page single">
             <div class="container">
-                <div class="col-md-12">
+                <div class="col-md-12 px-0">
                         <div class="row">
-                            <div class="col-md-4 content-menu">
+                            <div class="col-md-4 px-0 content-menu">
                                 <div class="post-meta">
                                 <h5>STORIES / People</h5>
                                      RO / Țicleni 22/03/2019
@@ -26,36 +26,26 @@
                                     <h5>People in this Story</h5>
                                     <div class="col-md-6 px-0">
                                         <div class="row">
-                                            <div class="col-md-6 px-0 people">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/img/people1.png" alt="">
-                                                <h6 class="pt-4">Claudiu VIDARIE</h6>
-                                                <p>Production Enhancement Technologies Manager</p>
-                                            </div>
-                                            <div class="col-md-6 px-0 people">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/img/people1.png" alt="">
-                                                <h6 class="pt-4">Claudiu VIDARIE</h6>
-                                                <p>Production Enhancement Technologies Manager</p>
-                                            </div>
-                                            <div class="col-md-6 px-0 people">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/img/people1.png" alt="">
-                                                <h6 class="pt-4">Claudiu VIDARIE</h6>
-                                                <p>Production Enhancement Technologies Manager</p>
-                                            </div>
-                                            <div class="col-md-6 px-0 people">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/img/people1.png" alt="">
-                                                <h6 class="pt-4">Claudiu VIDARIE</h6>
-                                                <p>Production Enhancement Technologies Manager</p>
-                                            </div>
+                                            <?php
+                                                // check if the repeater field has rows of data
+                                                if( have_rows('people') ):
+                                                    // loop through the rows of data
+                                                    while ( have_rows('people') ) : the_row(); ?>
 
+                                                        <div class="col-md-6 px-0 people">
+                                                            <img src="<?php echo get_sub_field('image'); ?>" alt="">
+                                                            <h6 class="pt-4"><?php echo get_sub_field('name');?></h6>
+                                                            <p><?php echo get_sub_field('job_title'); ?></p>
+                                                        </div>
+                                                <?php    endwhile;
+                                                endif;
+                                            ?>
                                         </div>
-
                                     </div>
-
-
                                 </div>
 
                             </div>
-                            <div class="col-md-6 content-block">
+                            <div class="col-md-8  px-0 content-block">
                                 <div class="row">
                                     <div class="post-excerpt">
                                         <h1><?php the_excerpt(); ?></h1>

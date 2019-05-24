@@ -77,3 +77,22 @@ $(document).ready(function () {
 
 $('.accordion').accordionTabs({"autoExpandFirst":true});
 });
+
+
+
+//Show more content;
+
+jQuery(document).ready(function($) {
+    $('.show-more').on('click', function(){
+        let content = $(this).data('trigger');
+        console.log(content);
+
+        $('.' + content).toggleClass('show');
+
+        if($('.' + content).hasClass('show')) {
+            $('a.show-more ').html('See Less <span>↑</span>');
+        } else {
+            $('a.show-more ').html('Read More <span>→</span>');
+        }
+    });
+});
