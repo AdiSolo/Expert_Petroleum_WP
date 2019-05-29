@@ -7,24 +7,6 @@
 */
 
 
-
-/*
-
-<ul class="parrent-li">
-    <li>
-        <img src="<?php echo get_template_directory_uri(); ?>/img/cat-img1.png" alt="">
-        <a href="page.html">SUSTAINABILITY</a>
-        <ul class="sub-menu">
-            <li>Safety</li>
-            <li>Environment</li>
-            <li>Communities</li>
-        </ul>
-    </li>
-</ul>
-
-*/
-
-
 class Walker_Nav_Primary extends Walker_Nav_menu {
 
     function start_lvl( &$output, $depth) { // ul
@@ -41,7 +23,7 @@ class Walker_Nav_Primary extends Walker_Nav_menu {
         $class_names = $value = '' ;
 
         $classes =  empty($item->classes) ? array() : (array) $item->classes;
-        $classes[] = ($args->walker->has_children) ? 'sub-menu': '';
+        $classes[] = ($args->walker->has_children) ? 'has-sub-menu': '';
         $classes[] = ($item->current || $item->current_item_anchestor) ? 'active' : '';
         $classes[]  = 'menu-item-' . $item->ID;
         if( $depth && $args->walker->has_children) {

@@ -73,6 +73,7 @@
 			'hierarchical'       => false,
 			'menu_position'      => 5,
 	        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+			'show_in_rest'		 => true,
 	        'menu_icon'          => 'dashicons-book',
 			'taxonomies'          => array( 'category' ),
 		);

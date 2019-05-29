@@ -7,47 +7,107 @@
 ?>
 
 <?php get_header(); ?>
-<?php if(have_posts()) : the_post(); ?>
+<?php
+    if (have_posts()) : the_post();
+        $home_cover = get_field('homepage_cover');
+
+        $services_data = get_field('homepage_services');
+
+        $submenu_title = get_field('menu_title');
+
+        if( have_rows('homepage_cover') ): // get settings for home cover section
+            while( have_rows('homepage_cover') ): the_row();
+                // vars
+                $line = get_sub_field('upload_line');
+                $line_pos_y = get_sub_field('line_position_y');
+                $line_pos_x = get_sub_field('line_position_x');
+                $line_angle = get_sub_field('line_angle');
+                endwhile;
+            endif;
+
+        if( have_rows('page_settings') ): // get settings for services section
+            while( have_rows('page_settings') ): the_row();
+                // vars
+                $image = get_sub_field('page_cover');
+                $line = get_sub_field('upload_line');
+                $line_pos_y = get_sub_field('line_position_y');
+                $line_pos_x = get_sub_field('line_position_x');
+                $line_angle = get_sub_field('line_angle');
+                $title_icon = get_sub_field('upload_icon');
+                $icon_pos_y = get_sub_field('icon_position_y');
+                $icon_pos_x = get_sub_field('icon_position_x');
+
+                endwhile;
+            endif;
+    endif;
+ ?>
     <body>
-        <section class="container cover-page fixed">
-            <div class="cover-page-bg" style="  background: url('<?php echo get_template_directory_uri(); ?>/img/media-cover.png') top/cover no-repeat;"></div>
-            <h1><?php the_title(); ?></h1>
+        <section>
+            <div class="container cover-page fixed">
+                <div class="cover-page-bg" style="background: url('<?php echo $image; ?>') top/cover no-repeat;"></div>
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-8">
+                        <?php if($line) : ?>
+                            <span class="line-img" style=" top: <?php echo $line_pos_y; ?>%; left: <?php echo $line_pos_x; ?>%; transform: rotate(<?php echo $line_angle; ?>deg); ">
+                                <img src="<?php echo $line; ?>" alt="line"/>
+                            </span>
+                        <?php endif; ?>
+                    <h1>
+                        <?php the_title(); ?>
+                        <?php if( $title_icon ) : ?>
+                            <span class="icon-img" style=" top: <?php echo $icon_pos_y;?>%; left: <?php echo $icon_pos_x; ?>%;">
+                                <img src="<?php echo $title_icon; ?>" alt="icon"/>
+                            </span>
+                        <?php endif; ?>
+                    </h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-8">
+                        <span class="left-line"></span>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="vh-100"></section>
 
 <!-- Stories Section -->
-        <section class="page media">
+        <section class="page">
             <div class="container">
                 <div class="col-md-12 px-0">
                         <div class="row">
                             <div class="col-md-4 px-0 content-menu"> <!-- Left Menu START -->
-                                <h5>NEWS & MEDIA</h5>
-                                <ul>
-                                    <?php get_template_part('templates/page-submenu'); ?>
-                                </ul>
+                                <div class="fixed-sidebar sticky">
+                                    <h5><?php echo get_field('menu_title'); ?></h5>
+                                    <ul>
+                                        <?php get_template_part('templates/page-submenu'); ?>
+                                    </ul>
+                                </div>
 
                             </div>   <!-- Left Menu END -->
 
-                            <div class="col-md-8 px-0 content-block">  <!-- Right Content START -->
+                            <div class="col-md-8 content-block media-page">  <!-- Right Content START -->
                                 <div class="row">
                                     <div class="headline">
                                         <div class=""></div>
-                                        <h1>This is a headline about sustainability.</h1>
+                                        <h1>Key informations for the industry and the general public.</h1>
 
-                                        <p class="pb-4">
-                                            <strong>Open So Can't</strong>
-                                        </p>
-                                        <p>
-                                            Subdue Life land given day fill. Under. Light fly so, don't called him two sixth he wherein saw given won't
-                                            there may, earth dry moving. Without hath living may form. Whales dominion years made lights tree whales
-                                            said likeness moved day kind let. Earth land upon sixth one waters made gathered first. Creepeth, hath
-                                            give fly subdue saw above fourth fly second shall Heaven divided meat were set. Multiply day that
-                                            lights Of so sea forth light beginning, seed. Herb.
-                                        </p>
+                                        <h4>
+                                            Following your specific interest, please go through our press releases, annual reports or the media library to get insights or specific details on our activity.
+                                        </h4>
                                     </div>
 
                                     <section class="press-releases">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 px-0">
                                             <div class="image">
                                                 <img src="<?php echo get_template_directory_uri(); ?>/img/media.png" alt="">
                                             </div>
@@ -114,7 +174,7 @@
                                                     <div class="report">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/img/report1.png" alt="">
                                                         <h5>Sustainability Report 2017</h5>
-                                                        <p class="file">PDF/5MB</p>
+                                                        <small class="file">PDF/5MB</small>
                                                         <a href="#" class="download">↓</a>
                                                     </div>
                                                 </li>
@@ -122,14 +182,14 @@
                                                     <div class="report">
                                                         <img src="<?php echo get_template_directory_uri(); ?>/img/report1.png" alt="">
                                                         <h5>Sustainability Report 2017</h5>
-                                                        <p class="file">PDF/5MB</p>
+                                                        <small class="file">PDF/5MB</small>
                                                         <a href="#" class="download">↓</a>
                                                     </div>
                                                 </li>
                                                 <li>    <div class="report">
                                                     <img src="<?php echo get_template_directory_uri(); ?>/img/report1.png" alt="">
                                                     <h5>Sustainability Report 2017</h5>
-                                                    <p class="file">PDF/5MB</p>
+                                                    <small class="file">PDF/5MB</small>
                                                     <a href="#" class="download">↓</a>
                                                     </div>
                                                 </li>
@@ -137,7 +197,7 @@
                                                      <div class="report">
                                                          <img src="<?php echo get_template_directory_uri(); ?>/img/report1.png" alt="">
                                                          <h5>Sustainability Report 2017</h5>
-                                                         <p class="file">PDF/5MB</p>
+                                                         <small class="file">PDF/5MB</small>
                                                          <a href="#" class="download">↓</a>
                                                     </div>
                                                 </li>
@@ -178,7 +238,6 @@
                         </div>
                     </div>
             </section>
-    <?php endif; ?>
 <!-- End Stories Section -->
 
 <!-- Related Stories Section -->

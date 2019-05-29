@@ -11,6 +11,13 @@ Author: High Contrast
       margin-left: 152px;
   }
 
+/*
+  .container {
+      max-width: 1968px;
+      padding-right: 280px;
+      padding-left: 152px;
+  } */
+
 }
 
 .container {
@@ -116,6 +123,23 @@ border-top: 4px solid #013F45;
 .icon-img {
     width: 80px;
 }
+
+h1{
+    font-size: 5.063em !important;
+}
+
+/* h4{
+    font-size: 1.5em !important;
+}
+
+p{
+    font-size: 1em !important;
+} */
+
+small {
+    font-size: 0.66em !important;
+}
+
 /*
 ****************  Nav Menu CSS  ****************
 */
@@ -128,6 +152,11 @@ nav{
 }
 .nav-menu{
     flex-wrap: nowrap;
+}
+
+#menu-header-menu {
+    display: flex;
+    justify-content: center;
 }
 
 .logo{
@@ -180,7 +209,7 @@ nav{
     background: #fff;
     width: 100%;
     height: 100%;
-    z-index: 50;
+    z-index: 101;
 
 }
 
@@ -230,6 +259,7 @@ nav{
 
 .current_page_item > a  {
     color: #FE5000 !important;
+    font-weight: bold;
 }
 
 /*
@@ -305,13 +335,17 @@ nav{
 .cover-content {
     position: relative;
     padding-right: 165px;
-    padding-top: 280px;
+    padding-top: 135px;
+}
+
+.cover-description {
+    margin-top: 10.5rem;
 }
 
 .cover p {
     position: relative;
     width: 200px;
-    margin-bottom: 140px;
+    margin-bottom: 105px;
     font-size: 12px;
 }
 
@@ -319,20 +353,20 @@ nav{
     position: relative;
     width: 400px;
     color:  #FE5000;
-    font-size: 85px;
+    font-size: 91px;
     font-weight: 800;
     line-height: 96px;
 }
 
-.cover h1:before{
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: -20px;
+.left-line{
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    margin-left: -20px;
     width: 1px;
-    height: 200px;
+    height: 130px;
     background-color: #013F45;
-
+    z-index: 100;
 }
 
 
@@ -414,7 +448,8 @@ nav{
     height: 240px;
     object-fit: cover;
 }
-.column-post h5, .small-post h5{
+.column-post h5, .small-post h5,
+.column-post h5 a, .small-post h5 a{
     position: relative;
     font-size: 27px;
     font-weight: 800;
@@ -468,7 +503,7 @@ nav{
      height: 116px;
  }
 
- .date {
+ .date, .date a {
      color: #FE5000;
      font-size: 12px;
      width: 100%;
@@ -535,7 +570,7 @@ nav{
 .wp-block-lazyblock-cover-image .cover-title{
     position: relative;
     top: -55px;
-    font-size: 85px;
+    font-size: 91px;
     font-weight: 300;
     line-height: 96px;
     letter-spacing: -4px;
@@ -644,6 +679,10 @@ nav{
 #copyright-media {
     padding: 30px 0;
 }
+.footer .footer-menu  .parrent-li {
+    margin-bottom: 61px;
+}
+
 .footer .footer-menu  .parrent-li > li{
     display: inline-table;
     margin-right: 70px;
@@ -685,9 +724,6 @@ nav{
 }
 
 .cover-page {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   padding-top: 240px;
 }
 
@@ -702,19 +738,9 @@ nav{
     position: relative;
     top: -45px;
     color:  #FE5000;
-    font-size: 85px;
+    font-size: 91px;
     font-weight: 800;
     line-height: 96px;
-}
-
-
-.cover-page h1:before {
-    content: '';
-    position: absolute;
-    left: -10px;
-    width: 1px;
-    height: 100px;
-    background-color: #013F45;
 }
 
 .page-content {
@@ -867,11 +893,12 @@ nav{
     font-weight: 300;
     color: #FE5000;
 }
-.wp-block-lazyblock-icon-widget .icon-widget{
+.wp-block-lazyblock-icon-widget .icon-widget, .wp-block-lazyblock-history-widget .icon-widget{
     display: flex;
     flex-wrap: wrap;
     flex-flow: column;
     max-width: 208px;
+    height: 280px;
     border-top: 4px solid #013F45;
 }
 .wp-block-lazyblock-icon-widget .icon-widget h3{
@@ -900,6 +927,21 @@ nav{
     margin-top: auto;
     font-weight: bold;
 }
+
+.wp-block-lazyblock-history-widget .icon-widget  {
+    border-top: 1px solid #013F45;
+}
+
+.wp-block-lazyblock-history-widget .icon-widget h4 {
+    font-weight: 800;
+    padding-top: 1rem;
+}
+
+.wp-block-lazyblock-history-widget .icon-widget p  {
+    width: 65%;
+    font-weight: 300;
+    margin-top: auto;
+}
 /*
 ****************  Page MEDIA CSS  ****************
 */
@@ -915,6 +957,17 @@ nav{
     height: 240px;
 }
 
+.report h5{
+    font-size: 27px;
+    font-weight: 800;
+    line-height: 36px;
+    letter-spacing: -0.7px;
+    padding-top: 1rem;
+}
+.report small {
+    font-weight: bold;
+    padding-top: 1rem;
+}
 .report .file, .report .download {
     color: #FE5000;
 }
@@ -934,18 +987,50 @@ nav{
     top: -10px;
     background-color: #013F45;
 }
+.reports .see-all{
+    margin-top: 45px;
+    margin-left: 256px;
+}
 
-.media {
+.media-page {
     padding-bottom: 139px;
 }
 
 
+.media-page h1{
+    position: relative;
+    top: 0;
+    font-weight: 300;
+    line-height: 96px;
+    letter-spacing: -4px;
+    padding-bottom: 2rem;
+}
+
+.media-page h4{
+    font-weight: 300;
+    color: #FE5000;
+    padding-bottom: 2rem;
+}
+
+.media-page .title h1{
+    position: relative;
+    top: -55px;
+    font-size: 85px;
+    font-weight: 300;
+    line-height: 96px;
+    letter-spacing: -4px;
+    color: #FE5000;
+    max-width: 67%;
+    margin: 0 auto;
+
+}
+
 /*
 ****************  Single Page CSS  ****************
 */
-.content {
+/* .content {
     margin-top: 140px;
-}
+} */
 .post-meta {
     font-size: 12px;
 }
@@ -966,11 +1051,7 @@ nav{
     font-weight: bold;
     color: #FE5000;
 }
- .post-excerpt h1{
-    font-size: 91px;
-    font-weight: 300;
-    line-height: 96px;
-}
+
 .content p{
     position: relative;
     margin-bottom: 30px;
@@ -979,8 +1060,14 @@ nav{
 .content p strong{
     font-weight: bold;
 }
-
+.content h1{
+   font-size: 91px;
+   font-weight: 300;
+   line-height: 96px;
+   padding-bottom: 140px;
+}
 .content img {
+    max-width: 170%;
     width: 170%;
     position: relative;
     right: 70%;
@@ -1017,4 +1104,96 @@ nav{
 
 .related-stories {
     padding-top: 140px;
+}
+
+
+
+
+/* Team */
+
+.card-item ul li {
+    display: inline-flex;
+    width: 49%;
+    padding: 0 24px;
+    margin-top: 1rem;
+}
+/* .card-item ul li:nth-child(odd) {
+    padding-left: 0;
+}
+.card-item ul li:nth-child(even) {
+    padding-right: 0;
+} */
+.member-photo {
+    width: 100%;
+}
+.card-item ul li .member-photo img{
+   width: 100%;
+   max-height: 240px;
+   object-fit: cover;
+}
+.member-info {
+    display: none;
+    padding-left: 24px;
+}
+
+.card-item ul li .member-photo {
+    width: 100%;
+}
+.card-item ul li .member-photo .open-item {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    border-top: 1px solid #013F45;
+    cursor: pointer;
+}
+
+.card-item ul li .member-info .close-item {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: auto;
+    cursor: pointer;
+    padding-bottom: 5px;
+}
+
+.card-item ul li div p{
+    padding: 0;
+}
+
+
+.card-item ul li div span{
+    color: #FE5000;
+}
+.card-item ul .active {
+    width: 100%;
+}
+
+.card-item ul  .active div{
+    display: block;
+    width: 49%;
+}
+
+.card-item ul  .active .member-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-item ul  .active .member-photo{
+    padding-right: 24px;
+}
+
+
+
+@media only screen and (max-width: 976px) {
+    .card-item ul  .active div{
+        width: 100%;
+    }
+
+    .member-info {
+        padding-left: 0;
+    }
+    .card-item ul li {
+        display: inline-block;
+        width: 100%;
+    }
 }

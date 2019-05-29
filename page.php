@@ -20,25 +20,45 @@
 
                     endwhile;
                 endif;
+
             ?>
+        <?php endif; ?>
 
+        <section class="">
+            <div class="container cover-page fixed">
+                <div class="cover-page-bg" style="background: url('<?php echo $image; ?>') top/cover no-repeat;"></div>
+                <div class="row">
+                    <div class="col-md-4">
 
-        <section class="cover-page fixed">
-            <div class="container cover-page-bg" style="background: url('<?php echo $image; ?>') top/cover no-repeat;"></div>
+                    </div>
+                    <div class="col-md-8">
+                        <?php if($line) : ?>
+                            <span class="line-img" style=" top: <?php echo $line_pos_y; ?>%; left: <?php echo $line_pos_x; ?>%; transform: rotate(<?php echo $line_angle; ?>deg); ">
+                                <img src="<?php echo $line; ?>" alt="line"/>
+                            </span>
+                        <?php endif; ?>
+                    <h1>
+                        <?php the_title(); ?>
+                        <?php if( $title_icon ) : ?>
+                            <span class="icon-img" style=" top: <?php echo $icon_pos_y;?>%; left: <?php echo $icon_pos_x; ?>%;">
+                                <img src="<?php echo $title_icon; ?>" alt="icon"/>
+                            </span>
+                        <?php endif; ?>
+                    </h1>
+                    </div>
+                </div>
+            </div>
 
-                <?php if($line) : ?>
-                    <span class="line-img" style=" top: <?php echo $line_pos_y; ?>%; left: <?php echo $line_pos_x; ?>%; transform: rotate(<?php echo $line_angle; ?>deg); ">
-                        <img src="<?php echo $line; ?>" alt="line"/>
-                    </span>
-                <?php endif; ?>
-            <h1>
-                <?php the_title(); ?>
-                <?php if( $title_icon ) : ?>
-                    <span class="icon-img" style=" top: <?php echo $icon_pos_y;?>%; left: <?php echo $icon_pos_x; ?>%;">
-                        <img src="<?php echo $title_icon; ?>" alt="icon"/>
-                    </span>
-                <?php endif; ?>
-            </h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-8">
+                        <span class="left-line"></span>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="vh-100"></section>
 
@@ -48,11 +68,12 @@
                 <div class="col-md-12 px-0">
                         <div class="row">
                             <div class="col-md-4 px-0 content-menu">
-                                <h5><?php echo get_field('menu_title'); ?></h5>
-                                <ul>
-                                    <?php get_template_part('templates/page-submenu'); ?>
-                                </ul>
-
+                                <div class="fixed-sidebar sticky">
+                                    <h5><?php echo get_field('menu_title'); ?></h5>
+                                    <ul>
+                                        <?php get_template_part('templates/page-submenu'); ?>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="col-md-8 content-block">
                                 <div class="row">
@@ -64,12 +85,19 @@
                         </div>
                     </div>
             </section>
-            <?php endif; ?>
+
 <!-- End Stories Section -->
 
 <!-- Related Stories Section -->
 
-<?php get_template_part('templates/related-stories'); ?>
+<?php
+    $show_related_post = get_field('enable_related_posts');
+    $post_type = get_field('select_post_type');
+    $category_id = get_field('select_category');
+?>
+
+
+<?php ( $show_related_post == true ) ? include(locate_template('templates/related-stories.php')) : ''; ?>
 
 <!-- End Related Stories Section -->
 <?php get_footer(); ?>

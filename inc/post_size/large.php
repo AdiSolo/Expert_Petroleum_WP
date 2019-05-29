@@ -19,7 +19,7 @@
                     <?php endif; ?>
                 </h1>
                 <div class="date">RO / Țicleni / Feb 2019</div>
-                <div class="description">This is what our teams struggle to become everyday, on the fields and in their private life...</div>
+                <div class="description pb-3">This is what our teams struggle to become everyday, on the fields and in their private life...</div>
                 <a href="<?php echo $posts[0]['link']; ?>" class="read-more">READ MORE <span>→</span></a>
         </div>
     </div>

@@ -96,3 +96,16 @@ jQuery(document).ready(function($) {
         }
     });
 });
+
+
+$(document).ready(function () {
+    $(".card-item .open-item").on( 'click' , function(){
+        $(this).parents(':eq(1)').addClass("active");
+    });
+
+    $(".card-item .close-item").on( 'click' , function(){
+
+        $('.card-item ul li').removeClass("active");
+    });
+
+});

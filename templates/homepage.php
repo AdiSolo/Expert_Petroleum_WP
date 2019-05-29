@@ -7,8 +7,6 @@
 
 <?php get_header() ?>
     <body>
-
-
         <?php
             if (have_posts()) : the_post();
                 $home_cover = get_field('homepage_cover');
@@ -41,18 +39,38 @@
             endif;
          ?>
 
-        <section class="cover d-flex fixed">
-            <div class="cover-content my-auto mx-auto ">
-                <p class="cover-title">
-                <?php echo $home_cover['description']; ?>
+        <section class="">
+            <div class="cover fixed">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
 
-                </p>
-                <h1>
-                    <?php echo $home_cover['title']; ?>
-                    <span class="line-img" style=" top: <?php echo $line_pos_y; ?>%; left: <?php echo $line_pos_x; ?>%; transform: rotate(<?php echo $line_angle; ?>deg); ">
-                        <img src="<?php echo $line; ?>" alt="line"/>
-                    </span>
-                </h1>
+                        </div>
+                        <div class="col-md-8 cover-description">
+                            <p class="cover-title">
+                            <?php echo $home_cover['description']; ?>
+
+                            </p>
+                            <h1>
+                                <?php echo $home_cover['title']; ?>
+                                <span class="line-img" style=" top: <?php echo $line_pos_y; ?>%; left: <?php echo $line_pos_x; ?>%; transform: rotate(<?php echo $line_angle; ?>deg); ">
+                                    <img src="<?php echo $line; ?>" alt="line"/>
+                                </span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-8">
+                        <span class="left-line"></span>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -126,7 +144,7 @@
                                 </div> <!-- End Stories posts -->
                                 <div class="col-md-6 px-0 ">
                                     <div class="col-md-6 more-stories">
-                                        <a href="page-stories.html">More Stories <span>→</span></a>
+                                        <a href="<?php echo get_site_url(); ?>/stories">More Stories <span>→</span></a>
                                     </div>
                                 </div>
 

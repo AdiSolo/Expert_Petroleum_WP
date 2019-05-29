@@ -2,12 +2,32 @@
     <body>
 
         <?php if( have_posts() ) : the_post(); ?>
-        <section class="cover d-flex fixed" style="background-image: url('<?php  echo get_the_post_thumbnail_url(); ?>)">
-            <div class="cover-content my-auto mx-auto ">
-                <h1>
-                    <?php the_title(); ?>
-                </h1>
-                <div class="line large"></div>
+        <section>
+            <div class="cover fixed"  style="background-image: url('<?php  echo get_the_post_thumbnail_url(); ?>)">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                        </div>
+                        <div class="col-md-8 cover-description">
+
+                            <h1>
+                                <?php the_title(); ?>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-8">
+                        <span class="left-line"></span>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="vh-100"></section>
@@ -45,13 +65,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-md-8  px-0 content-block">
-                                <div class="row">
-                                    <div class="post-excerpt">
-                                        <h1><?php the_excerpt(); ?></h1>
-                                    </div>
-
-                                </div>
+                            <div class="col-md-8 content-block">
                                 <div class="content">
                                     <?php the_content(); ?>
                                 </div>
