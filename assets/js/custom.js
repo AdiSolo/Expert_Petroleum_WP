@@ -35,7 +35,7 @@ $.fn.accordionTabs = function(options){
     }
   }
 
-  $(this).on('click', '.open', function(e) {
+  $(this).on('click touchstart tap touch', '.open', function(e) {
 
      e.preventDefault();
 
@@ -108,7 +108,6 @@ $(document).ready(function () {
     });
 
     $(".card-item .close-item").on( 'click' , function(){
-
         $('.card-item ul li').removeClass("active");
     });
 

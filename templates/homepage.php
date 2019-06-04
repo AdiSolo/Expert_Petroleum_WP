@@ -157,7 +157,7 @@
                                                 </div>
                                             </div>
                                 </div> <!-- End Stories posts -->
-                                <div class="col-md-6 px-0 ">
+                                <div class="col-6 col-md-6 px-0 ">
                                     <div class="col-md-6 more-stories">
                                         <a href="<?php echo get_site_url(); ?>/stories">More Stories <span>→</span></a>
                                     </div>
@@ -210,12 +210,12 @@
                                     <div class="row">
                                         <div class="col-md-12 px-0">
                                             <div class="row">
-                                              <article class="col-md-6 px-0 small-post">  <!-- Small post -->
+                                              <article class="col-md-6 px-0 pb-4 small-post">  <!-- Small post -->
                                                   <div class="row">
-                                                      <div class="col-md-6">
+                                                      <div class="col-6 col-md-6">
                                                           <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
                                                       </div>
-                                                      <div class="col-md-6 pl-4 align-title">
+                                                      <div class="col-6 col-md-6 align-title">
                                                           <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
                                                           <div class="date">Bucharest / Feb 2019 <span>→</span></div>
 
@@ -224,10 +224,10 @@
                                               </article> <!-- End Small post -->
                                               <article class="col-md-6 px-0 small-post">  <!-- Small post -->
                                                   <div class="row">
-                                                      <div class="col-md-6">
+                                                      <div class="col-6 col-md-6">
                                                           <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
                                                       </div>
-                                                      <div class="col-md-6 align-title">
+                                                      <div class="col-6 col-md-6 align-title">
                                                           <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
                                                           <div class="date">Bucharest / Feb 2019 <span>→</span></div>
 
