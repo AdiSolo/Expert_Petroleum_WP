@@ -43,20 +43,34 @@
             <div class="cover fixed">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4">
-
+                        <div class="col-md-4 cover-logo px-0">
+                            <div class="logo">
+                                <a href="<?php echo get_site_url(); ?>"> <img src="http://petroleum.highcontrast.ro/wp-content/uploads/2019/06/logo.svg" alt=""> </a>
+                            </div>
                         </div>
-                        <div class="col-md-8 cover-description">
-                            <p class="cover-title">
-                            <?php echo $home_cover['description']; ?>
+                        <div class="col-md-8 ">
+                            <div class="row">
+                                <div class="col-4 px-0">
 
-                            </p>
-                            <h1>
-                                <?php echo $home_cover['title']; ?>
-                                <span class="line-img" style=" top: <?php echo $line_pos_y; ?>%; left: <?php echo $line_pos_x; ?>%; transform: rotate(<?php echo $line_angle; ?>deg); ">
-                                    <img src="<?php echo $line; ?>" alt="line"/>
-                                </span>
-                            </h1>
+                                    <div class="cover-description">
+                                        <p class="cover-title">
+                                        <?php echo $home_cover['description']; ?>
+
+                                        </p>
+                                        <h1>
+                                            <?php echo $home_cover['title']; ?>
+                                            <span class="line-img" style=" top: <?php echo $line_pos_y; ?>%; left: <?php echo $line_pos_x; ?>%; transform: rotate(<?php echo $line_angle; ?>deg); ">
+                                                <img src="<?php echo $line; ?>" alt="line"/>
+                                            </span>
+                                        </h1>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-8 cover-bg-head px-0">
+                                    <img src="http://petroleum.highcontrast.ro/wp-content/uploads/2019/05/cover.png" alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -68,6 +82,7 @@
 
                     </div>
                     <div class="col-md-8">
+                        <span class="top-line"></span>
                         <span class="left-line"></span>
                     </div>
                 </div>

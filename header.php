@@ -10,9 +10,7 @@
     </head>
     <header class="<?php echo (!is_front_page() && !is_single()) ? 'page-header' : ''; ?>">
         <nav class="nav-menu d-flex">
-            <div class="logo">
-                <a href="<?php echo get_site_url(); ?>">Expert <br/>Petroleum</a>
-            </div>
+
             <div class="menu">
                 <div class="menu-btn open-menu">
                     <div class="bar1"></div>
@@ -23,11 +21,11 @@
             </div>
         </nav>
         <div class="site-menu">
+            <div class="menu-bar">
+                <div class="close-btn open-menu"> <img src="http://petroleum.highcontrast.ro/wp-content/uploads/2019/06/Close_Icon.svg" alt=""> </div>
+            </div>
             <div class="container">
-                <div class="menu-bar">
-                    <div class="menu-logo">XP</div>
-                    <div class="open-menu">X</div>
-                </div>
+            <div class="menu-logo"> <img src="http://petroleum.highcontrast.ro/wp-content/uploads/2019/06/XP_Logotype.svg" alt=""> </div>
                 <?php
                   /* Primary navigation Header */
                     wp_nav_menu( array(

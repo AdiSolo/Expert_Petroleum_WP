@@ -1,23 +1,22 @@
-
-var pos =  new Array('25', '30', '46', '58');
-function get_random(){
-    var rand = pos[Math.floor(Math.random() * pos.length)];
-    return rand;
-}
-
+/*
+    ==================================================
+    Toggle Menu
+    ==================================================
+*/
 jQuery(document).ready(function($) {
     $('.open-menu').on('click', function(){
         $('.site-menu').slideToggle(200);
         $('body').toggleClass('hide-scroll');
         $('.nav-menu').toggleClass('hide-nav');
-
-        console.log('Show');
     });
 });
 
 
-
-    /*AccordionTabs jQuery plugin. Author & copyright (c) 2013 : isyara */
+/*
+    ==================================================
+    AccordionTabs jQuery plugin.
+    ==================================================
+*/
 (function($){
 
 $.fn.accordionTabs = function(options){
@@ -35,8 +34,6 @@ $.fn.accordionTabs = function(options){
       return;
     }
   }
-
-
 
   $(this).on('click', '.open', function(e) {
 
@@ -79,13 +76,15 @@ $('.accordion').accordionTabs({"autoExpandFirst":true});
 });
 
 
-
-//Show more content;
+/*
+    ==================================================
+    Show and Read More Content
+    ==================================================
+*/
 
 jQuery(document).ready(function($) {
     $('.show-more').on('click', function(){
         let content = $(this).data('trigger');
-        console.log(content);
 
         $('.' + content).toggleClass('show');
 
@@ -97,6 +96,11 @@ jQuery(document).ready(function($) {
     });
 });
 
+/*
+    ==================================================
+    History Widget
+    ==================================================
+*/
 
 $(document).ready(function () {
     $(".card-item .open-item").on( 'click' , function(){
@@ -108,4 +112,24 @@ $(document).ready(function () {
         $('.card-item ul li').removeClass("active");
     });
 
+});
+
+/*
+    ==================================================
+    Sidebar menu
+    ==================================================
+*/
+
+jQuery(document).ready(function($) {
+    $('.second-menu li').on('click', function(){
+    let trigger = $(this).attr('data-trigger');
+
+    $('.second-menu li').removeClass('active')
+
+    $('html, body').animate({
+          scrollTop: $("." + trigger).offset().top
+      }, 1000);
+
+      $(this).addClass('active');
+    });
 });

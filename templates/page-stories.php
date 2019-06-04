@@ -38,41 +38,48 @@
                     endif;
             endif;
          ?>
-        <section class="">
-            <div class="container cover-page fixed">
-                <div class="cover-page-bg" style="background: url('<?php echo $image; ?>') top/cover no-repeat;"></div>
-                <div class="row">
-                    <div class="col-md-4">
+         <section class="">
+             <div class="container cover-page fixed">
+                 <div class="col-md-4 cover-logo px-0">
+                     <div class="logo">
+                         <a href="<?php echo get_site_url(); ?>"> <img src="http://petroleum.highcontrast.ro/wp-content/uploads/2019/06/logo.svg" alt=""> </a>
+                     </div>
+                 </div>
+                 <div class="cover-page-bg" style="background: url('<?php echo $image; ?>') top/cover no-repeat;"></div>
+                 <div class="row">
+                     <div class="col-md-4">
+                     </div>
+                     <div class="col-md-8">
+                         <?php if($line) : ?>
+                             <span class="line-img" style=" top: <?php echo $line_pos_y; ?>%; left: <?php echo $line_pos_x; ?>%; transform: rotate(<?php echo $line_angle; ?>deg); ">
+                                 <img src="<?php echo $line; ?>" alt="line"/>
+                             </span>
+                         <?php endif; ?>
+                     <h1>
+                         <?php the_title(); ?>
+                         <?php if( $title_icon ) : ?>
+                             <span class="icon-img" style=" top: <?php echo $icon_pos_y;?>%; left: <?php echo $icon_pos_x; ?>%;">
+                                 <img src="<?php echo $title_icon; ?>" alt="icon"/>
+                             </span>
+                         <?php endif; ?>
+                     </h1>
+                     </div>
+                 </div>
+             </div>
 
-                    </div>
-                    <div class="col-md-8">
-                        <?php if($line) : ?>
-                            <span class="line-img" style=" top: <?php echo $line_pos_y; ?>%; left: <?php echo $line_pos_x; ?>%; transform: rotate(<?php echo $line_angle; ?>deg); ">
-                                <img src="<?php echo $line; ?>" alt="line"/>
-                            </span>
-                        <?php endif; ?>
-                    <h1>
-                        <?php the_title(); ?>
-                        <?php if( $title_icon ) : ?>
-                            <span class="icon-img" style=" top: <?php echo $icon_pos_y;?>%; left: <?php echo $icon_pos_x; ?>%;">
-                                <img src="<?php echo $title_icon; ?>" alt="icon"/>
-                            </span>
-                        <?php endif; ?>
-                    </h1>
-                    </div>
-                </div>
-            </div>
+             <div class="container">
+                 <div class="row">
+                     <div class="col-md-4">
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                    </div>
-                    <div class="col-md-8">
-                        <span class="left-line"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
+                     </div>
+                     <div class="col-md-8">
+                         <span class="top-line"></span>
+                         <span class="left-line"></span>
+
+                     </div>
+                 </div>
+             </div>
+         </section>
 
 <!-- Stories Section -->
 <section class="vh-100"></section>

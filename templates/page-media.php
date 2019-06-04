@@ -42,12 +42,16 @@
     endif;
  ?>
     <body>
-        <section>
+        <section class="">
             <div class="container cover-page fixed">
+                <div class="col-md-4 cover-logo px-0">
+                    <div class="logo">
+                        <a href="<?php echo get_site_url(); ?>"> <img src="http://petroleum.highcontrast.ro/wp-content/uploads/2019/06/logo.svg" alt=""> </a>
+                    </div>
+                </div>
                 <div class="cover-page-bg" style="background: url('<?php echo $image; ?>') top/cover no-repeat;"></div>
                 <div class="row">
                     <div class="col-md-4">
-
                     </div>
                     <div class="col-md-8">
                         <?php if($line) : ?>
@@ -73,7 +77,9 @@
 
                     </div>
                     <div class="col-md-8">
+                        <span class="top-line"></span>
                         <span class="left-line"></span>
+
                     </div>
                 </div>
             </div>

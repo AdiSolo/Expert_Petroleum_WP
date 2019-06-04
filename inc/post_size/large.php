@@ -3,7 +3,8 @@
         <div class="col-md-6">
         <img src="<?php echo $posts[0]['image']; ?>" class="post-img" alt="">
         </div>
-        <div class="col-md-6 d-flex align-title">
+        <div class="col-md-6  align-title">
+            <span class="separator"></span>
                 <h1>
                     <?php if($post_line) : ?>
                         <span class="line-img" style=" top: <?php echo $post_line_pos_y; ?>%; left: <?php echo $post_line_pos_x; ?>%; transform: rotate(<?php echo $post_line_angle; ?>deg); ">
