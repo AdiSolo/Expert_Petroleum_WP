@@ -116,11 +116,13 @@
                                                 while($query->have_posts()) : $query->the_post();
 
                                                 $posts[] = [
-                                                    'title' => get_the_title(),
-                                                    'link' => get_the_permalink(),
-                                                    'image' => get_the_post_thumbnail_url(),
+                                                    'title'             => get_the_title(),
+                                                    'link'              => get_the_permalink(),
+                                                    'image'             => get_the_post_thumbnail_url(),
+                                                    'short_description' => get_the_excerpt(),
+                                                    'post_date'         => get_the_date(),
+                                                    'post_location'     => get_the_terms($post, 'story_location'),
                                                 ];
-
 
                                                 // Get content from Post Custom Fields
                                                 if( $count == 0 && have_rows('post_settings') ) {
@@ -139,11 +141,12 @@
 
                                                 $count++;
                                                 endwhile;
-
                                             endif;
+                                            wp_reset_query();
+                                            wp_reset_postdata();
 
-                                            include( locate_template( 'inc/post_size/large.php', false, false ) );
-                                            include( locate_template( 'inc/post_size/column.php', false, false ) );
+                                            include( locate_template( 'templates/post_size/large.php', false, false ) );
+                                            include( locate_template( 'templates/post_size/column.php', false, false ) );
                                     ?>
 
 
@@ -151,18 +154,17 @@
                                                 <div class="row">
                                                     <?php
                                                             for ($i=2; $i <= 3; $i++) :
-                                                                include( locate_template( 'inc/post_size/small.php', false, false ) );
+                                                                include( locate_template( 'templates/post_size/small.php', false, false ) );
                                                             endfor;
                                                     ?>
                                                 </div>
                                             </div>
                                 </div> <!-- End Stories posts -->
-                                <div class="col-6 col-md-6 px-0 ">
+                                <div class="col-md-6 px-0 ">
                                     <div class="col-md-6 more-stories">
                                         <a href="<?php echo get_site_url(); ?>/stories">More Stories <span>→</span></a>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

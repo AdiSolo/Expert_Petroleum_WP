@@ -75,8 +75,72 @@
 	        'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
 			'show_in_rest'		 => true,
 	        'menu_icon'          => 'dashicons-book',
-			'taxonomies'          => array( 'category' ),
 		);
 
 		register_post_type( 'story', $args );
 	}
+
+
+	function story_taxonomy(){
+		//add new taxonomy hierarchical
+	$labels = array(
+		'name' => 'Categories',
+		'singular_name' => 'Category',
+		'search_items' => 'Search Category',
+		'all_items' => 'All Categories',
+		'parent_item' => 'Parent Category',
+		'parent_item_colon' => 'Parent Category:',
+		'edit_item' => 'Edit Category',
+		'update_item' => 'Update Category',
+		'add_new_item' => 'Add New Story Category',
+		'new_item_name' => 'New Category Name',
+		'menu_name' => 'Categories'
+	);
+
+	$args = array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_ui' => true,
+		'show_in_rest' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'story_category' )
+	);
+
+	register_taxonomy('story_category', array('story'), $args);
+
+//add new taxonomy NOT hierarchical
+	}
+add_action( 'init' ,  'story_taxonomy');
+	function story_location_taxonomy(){
+		//add new taxonomy hierarchical
+	$labels = array(
+		'name' => 'Location',
+		'singular_name' => 'Location',
+		'search_items' => 'Search Location',
+		'all_items' => 'All Locations',
+		'parent_item' => 'Parent Location',
+		'parent_item_colon' => 'Parent Location:',
+		'edit_item' => 'Edit Location',
+		'update_item' => 'Update Location',
+		'add_new_item' => 'Add New Story Location',
+		'new_item_name' => 'New Location Name',
+		'menu_name' => 'Locations'
+	);
+
+	$args = array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_ui' => true,
+		'show_in_rest' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'story_location' )
+	);
+
+	register_taxonomy('story_location', array('story'), $args);
+
+//add new taxonomy NOT hierarchical
+	}
+
+add_action( 'init' , 'story_location_taxonomy');

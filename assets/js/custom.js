@@ -35,35 +35,48 @@ $.fn.accordionTabs = function(options){
     }
   }
 
-  $(this).on('click touchstart tap touch', '.open', function(e) {
+  $(this).on('click touchstart tap touch', '.open, .open-tab', function(e) {
 
      e.preventDefault();
 
      //instance
      $accordion = $(this).parents('.accordion');
 
-     if (!$(this).hasClass('active')) {
+     if (!$(this).hasClass('active') && !$(this).hasClass('open-transform')) {
 
       //panel
       $accordion.find('.is-open').removeClass('.is-open').css('height',0);
       $(this).next().addClass('is-open').css('height','auto');
 
+      let element_height =  $(this).next().height();
+
       //tab
+      $(".open").removeClass('open-transform');
       $accordion.find('.active').removeClass('active');
       $(this).addClass('active');
       $(this).css('opacity', '1');
       $('.accordion-item').not(this).css('opacity', '0.4');
+      $(this).find(".open").addClass('open-transform');
+      $(this).find(".open").css('top', element_height + 55);
+
 
       } else if(!$accordion.hasClass('tabs') || ($accordion.hasClass('tabs') && $accordion.find('>li:first-child').css('display') == 'list-item')){
 
         $accordion.find('.is-open').removeClass('.is-open').css('height',0);
         $(this).removeClass('active');
       }
+
+      else {
+          $('.is-open').css('height', '0');
+          $(".open").removeClass('open-transform');
+          $('.accordion-item').css('opacity', '1');
+      }
     });
-    $(".close-tabs").click(function(){
-        $('.is-open').css('height', '0');
-        $('.accordion-item').css('opacity', '1');
-    });
+    // $(".close-tabs, .open-transform").click(function(){
+    //     $('.is-open').css('height', '0');
+    //     $(this).find(".open").removeClass('open-transform');
+    //     $('.accordion-item').css('opacity', '1');
+    // });
   });
 }
 })(jQuery);
@@ -85,32 +98,69 @@ $('.accordion').accordionTabs({"autoExpandFirst":true});
 jQuery(document).ready(function($) {
     $('.show-more').on('click', function(){
         let content = $(this).data('trigger');
+        let that = $(this);
+
+        that.toggleClass('show-less');
 
         $('.' + content).toggleClass('show');
 
-        if($('.' + content).hasClass('show')) {
-            $('a.show-more ').html('See Less <span>↑</span>');
+        if(that.hasClass('show-less')) {
+            $(this).html('See Less <span>↑</span>');
         } else {
-            $('a.show-more ').html('Read More <span>→</span>');
+            $(this).html('Read More <span>↓</span>');
         }
     });
 });
 
 /*
     ==================================================
-    History Widget
+    Team Widget
     ==================================================
 */
 
 $(document).ready(function () {
-    $(".card-item .open-item").on( 'click' , function(){
-        $(this).parents(':eq(1)').addClass("active");
-    });
+    $(".card-item li .open-item").on( 'click' , function(){
 
-    $(".card-item .close-item").on( 'click' , function(){
-        $('.card-item ul li').removeClass("active");
-    });
+        let all_parents = $('.card-item ul li');
+        let parent = $(this).parents(':eq(0)');
+        let parent_index = parent.index();
+        let check = 'true';
 
+        $(all_parents).each( function (){
+            if($(this).hasClass('active'))
+            {
+                check = 'true';
+            }
+        });
+
+        if( !parent.hasClass('active') )
+        {
+            // check if any li is Active and remove it
+            if( check == 'true' ){
+                $( all_parents ).removeClass("active");
+                $( all_parents ).css("float", 'unset');
+                $('.card-item ul li .card-open-btn ').removeClass('rotate');
+            }
+
+                parent.addClass("active");
+                $(this).addClass('rotate');
+        
+                if( parent_index % 2  == 0 ){
+                    parent.css('float', 'left');
+                    parent.prev().css('float', 'right');
+                }
+                else
+                {
+                    parent.css('float', 'right');
+                    parent.prev().css('float', 'left');
+                }
+        }
+        else {
+            $( all_parents ).removeClass("active");
+            $( all_parents ).css("float", 'unset');
+            $(this).removeClass('rotate');
+        }
+    });
 });
 
 /*
@@ -123,12 +173,63 @@ jQuery(document).ready(function($) {
     $('.second-menu li').on('click', function(){
     let trigger = $(this).attr('data-trigger');
 
-    $('.second-menu li').removeClass('active')
+    //$('.second-menu li').removeClass('active');
 
     $('html, body').animate({
-          scrollTop: $("." + trigger).offset().top
+          scrollTop: $("." + trigger).offset().top - 100
       }, 1000);
 
       $(this).addClass('active');
     });
+});
+
+jQuery(document).ready(function($) {
+    $('.wp-block-column').each( function() {
+        if($(this).children().hasClass('m-inline1')){
+            $(this).addClass('m-inline1');
+        }
+    });
+});
+
+jQuery(function ($) {
+  $(document).ready(function() {
+    // Save cover positions and section ID in Array
+    var sections = Array();
+    var i = 0;
+    $(".cover-image").each(function() {
+      var section_id = $(this).data('id');
+      sections[i] = {
+        start: $(this).offset().top,
+        stop: ($(this).offset().top + $(this).height()),
+        section_id: section_id
+      };
+      i++;
+    });
+
+    $(document).bind('ready scroll', function () {
+        var docScroll = $(this).scrollTop(),
+            middle = $(window).height() / 3;
+    sections.forEach(function(section) {
+        	if(docScroll + middle  >= section.start && docScroll + middle < section.stop) {
+                $('.second-menu li').removeClass('active')
+                $('*[data-trigger="'+ section.section_id +'"]').addClass('active');
+          }
+        }); // END foreach
+    }); // End Bind
+  });
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+
+      var prev = 0;
+      var $window = $(window);
+      var nav = $('.sticky');
+      var is_true = "";
+
+      $window.on('scroll', function(){
+        var scrollTop = $window.scrollTop();
+        var elementPos = nav.offset().top;
+
+            nav.toggleClass('fixed-menu-mobile', scrollTop < prev);
+            prev = scrollTop;
+      });
+  }
 });

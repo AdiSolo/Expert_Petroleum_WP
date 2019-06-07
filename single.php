@@ -76,7 +76,7 @@
 
                             <div class="col-md-4 px-0 content-menu">
                                 <div class="people-in-story">
-                                    <h5 class="blue">People in this Story</h5>
+                                    <h5 class="blue">People in this Article</h5>
                                     <div class="col-md-6 mt-4 px-0">
                                         <div class="row">
                                             <?php
@@ -96,7 +96,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                             <div class="col-md-8 content-block">
                                 <div class="content">

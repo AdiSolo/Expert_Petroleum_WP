@@ -49,6 +49,7 @@ function petroleum_style() {
 
     wp_deregister_script('jquery');
 	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js', array(), null, true);
+    //wp_enqueue_script('jquery-ui', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array(), null, true);
     wp_enqueue_script( 'custom', get_template_directory_uri() . '/assets//js/custom.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'petroleum_style' );
@@ -116,25 +117,44 @@ add_filter( 'upload_mimes', 'my_custom_mime_types' );
     Allow specific blocks in Gutemberg
     ================================
 */
-add_filter( 'allowed_block_types', 'gutemberg_allowed_block_types' );
-function gutemberg_allowed_block_types( $allowed_blocks ) {
+// add_filter( 'allowed_block_types', 'gutemberg_allowed_block_types' );
+// function gutemberg_allowed_block_types( $allowed_blocks ) {
+//
+// 	return array(
+// 		'core/image',
+// 		'core/paragraph',
+// 		'core/heading',
+// 		'core/list',
+//         'core/video',
+//         'core/columns',
+//         'core/group',
+//         'core/gallery',
+//         'lazyblock/history-widget',
+//         'lazyblock/ordered-list',
+//         'lazyblock/cover-image',
+//         'lazyblock/icon-widget',
+//         'lazyblock/read-more',
+//         'lazyblock/acccordion',
+//         'lazyblock/team-board',
+//
+// 	);
+// }
 
-	return array(
-		'core/image',
-		'core/paragraph',
-		'core/heading',
-		'core/list',
-        'core/video',
-        'core/columns',
-        'core/group',
-        'core/gallery',
-        'lazyblock/history-widget',
-        'lazyblock/ordered-list',
-        'lazyblock/cover-image',
-        'lazyblock/icon-widget',
-        'lazyblock/read-more',
-        'lazyblock/acccordion',
-        'lazyblock/team-board',
+/*
+    ================================
+    Get Custom Taxonomies Name in List
+    ================================
+*/
 
-	);
+function  print_the_taxonomies_name($taxonomy)
+{
+    $all_terms = get_terms([
+        'taxonomy' => $taxonomy,
+        'hide_empty' => false,
+    ]);
+    $count_terms = count($all_terms);
+
+     for ($i=0; $i <= $count_terms ; $i++) {
+        echo '<li>' . $all_terms[$i]->name . '</li>';
+    }
 }

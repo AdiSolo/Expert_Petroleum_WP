@@ -3,11 +3,9 @@
         <div class="col-md-12  px-0">
             <div class="row">
                 <div class="col-md-4  px-0 content-menu">
-                        <h5>Related Stories</h5>
+                        <h5>RELATED <br/> STORIES</h5>
                         <ul>
-                            <li>People</li>
-                            <li>Sustainability</li>
-                            <li>Technology</li>
+                            <?php  print_the_taxonomies_name('story_category'); ?>
                         </ul>
 
                 </div>
@@ -15,55 +13,42 @@
                     <div class="row">
                         <div class="col-md-12 px-0">
                             <div class="row">
-                              <article class="col-md-6 pb-5 px-0 small-post">  <!-- Small post -->
-                                  <div class="row">
-                                      <div class="col-md-6">
-                                          <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
-                                      </div>
-                                      <div class="col-md-6 align-title">
-                                          <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                          <div class="date">Bucharest / Feb 2019 <span>→</span></div>
+                                <?php
 
-                                      </div>
-                                  </div>
-                              </article> <!-- End Small post -->
-                              <article class="col-md-6 pb-5  px-0 small-post">  <!-- Small post -->
-                                  <div class="row">
-                                      <div class="col-md-6">
-                                          <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
-                                      </div>
-                                      <div class="col-md-6 align-title">
-                                          <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                          <div class="date">Bucharest / Feb 2019 <span>→</span></div>
+                                    wp_reset_query();
+                                    wp_reset_postdata();
+                                    $args_related = array('post_type' => 'story','posts_per_page' => 4 );
+                                    $query_related = new WP_Query($args_related);
 
-                                      </div>
-                                  </div>
-                              </article> <!-- End Small post -->
-                              <article class="col-md-6 pb-5 px-0 small-post">  <!-- Small post -->
-                                  <div class="row">
-                                      <div class="col-md-6">
-                                          <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
-                                      </div>
-                                      <div class="col-md-6 align-title">
-                                          <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                          <div class="date">Bucharest / Feb 2019 <span>→</span></div>
+                                    $posts = [];
+                                    // Get content from Post
+                                        if($query_related->have_posts()) :
+                                            while($query_related->have_posts()) : $query_related->the_post();
 
-                                      </div>
-                                  </div>
-                              </article> <!-- End Small post -->
-                              <article class="col-md-6 pb-5  px-0 small-post">  <!-- Small post -->
-                                  <div class="row">
-                                      <div class="col-md-6">
-                                          <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
-                                      </div>
-                                      <div class="col-md-6 pl-4 align-title">
-                                          <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                          <div class="date">Bucharest / Feb 2019 <span>→</span></div>
+                                                $posts[] = [
+                                                    'title'             => get_the_title(),
+                                                    'link'              => get_the_permalink(),
+                                                    'image'             => get_the_post_thumbnail_url(),
+                                                    'short_description' => get_the_excerpt(),
+                                                    'post_date'         => get_the_date(),
+                                                    'post_location'     => get_the_terms($post, 'story_location'),
 
-                                      </div>
-                                  </div>
-                              </article> <!-- End Small post -->
+                                                ]; ?>
+                                                    <article class="col-md-6 pb-5  px-0 small-post">  <!-- Small post -->
+                                                        <div class="row">
+                                                            <div class="col-6 col-md-6">
+                                                                <img src="<?php echo  get_the_post_thumbnail_url(); ?>" class="post-img" alt="">
+                                                            </div>
+                                                            <div class="col-6 col-md-6 align-title">
+                                                                <h5><?php echo get_the_title(); ?></h5>
+                                                                <div class="date"> <?php echo get_the_terms($post, 'story_location')[0]->name . ' / ' . get_the_date(); ?> <span>→</span></div>
 
+                                                            </div>
+                                                        </div>
+                                                    </article> <!-- End Small post -->
+
+                                        <?php    endwhile; ?>
+                                        <?php endif;       ?>
                             </div>
                         </div>
                     </div>

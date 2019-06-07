@@ -5,8 +5,7 @@
         </div>
         <div class="col-md-9 align-title">
             <h5><a href="#"><?php echo $posts[$i]['title']; ?></a></h5>
-            <div class="date">Bucharest / Feb 2019 <span><a href="<?php echo $posts[$i]['link']; ?>">→</a> </span></div>
-
+            <div class="date">RO / <?php echo $posts[$i]['post_location'][0]->name; ?> / <?php echo $posts[$i]['post_date'] ?></div>
         </div>
     </div>
 </article> <!-- END Story post -->

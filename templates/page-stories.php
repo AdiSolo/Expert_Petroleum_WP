@@ -99,7 +99,7 @@
                             <div class="col-md-8 px-0 content-block">
                                 <div class="row">
                                     <?php
-                                        $args = array('post_type' => 'story','post_per_page' => 5);
+                                        $args = array('post_type' => 'story','posts_per_page' => 5);
                                         $query = new WP_Query($args);
                                         $count = 0;
                                         $posts = [];
@@ -108,11 +108,14 @@
                                                 while($query->have_posts()) : $query->the_post();
 
                                                 $posts[] = [
-                                                    'title' => get_the_title(),
-                                                    'link' => get_the_permalink(),
-                                                    'image' => get_the_post_thumbnail_url(),
-                                                ];
+                                                    'title'             => get_the_title(),
+                                                    'link'              => get_the_permalink(),
+                                                    'image'             => get_the_post_thumbnail_url(),
+                                                    'short_description' => get_the_excerpt(),
+                                                    'post_date'         => get_the_date(),
+                                                    'post_location'     => get_the_terms($post, 'story_location'),
 
+                                                ];
 
                                                 // Get content from Post Custom Fields
                                                 if( $count == 0 && have_rows('post_settings') ) {
@@ -133,8 +136,8 @@
                                                 endwhile;
                                             endif;
 
-                                            include( locate_template( 'inc/post_size/large.php', false, false ) );
-                                            include( locate_template( 'inc/post_size/column.php', false, false ) );
+                                            include( locate_template( 'templates/post_size/large.php', false, false ) );
+                                            include( locate_template( 'templates/post_size/column.php', false, false ) );
                                     ?>
 
                                     <?php if( $count >= 3 ) : ?>
@@ -142,14 +145,14 @@
                                                 <div class="row">
                                                     <?php
                                                             for ($i=2; $i <= 3; $i++) :
-                                                                include( locate_template( 'inc/post_size/small.php', false, false ) );
+                                                                include( locate_template( 'templates/post_size/small.php', false, false ) );
                                                             endfor;
                                                     ?>
                                                 </div>
                                             </div>
                                 <?php  endif;
                                         for ($i=4; $i <= count($posts) - 1; $i++) :
-                                            include( locate_template( 'inc/post_size/small-full.php', false, false ) );
+                                            include( locate_template( 'templates/post_size/small-full.php', false, false ) );
                                         endfor;
                                   ?>
                                 </div> <!-- End Stories posts -->

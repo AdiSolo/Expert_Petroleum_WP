@@ -1,4 +1,4 @@
-<article class="pb-5 large-post">  <!-- Large post -->
+<article class="gutter-b large-post">  <!-- Large post -->
     <div class="row">
         <div class="col-md-6">
         <img src="<?php echo $posts[0]['image']; ?>" class="post-img" alt="">
@@ -19,8 +19,8 @@
                         </span>
                     <?php endif; ?>
                 </h1>
-                <div class="date">RO / Țicleni / Feb 2019</div>
-                <div class="description pb-3">This is what our teams struggle to become everyday, on the fields and in their private life...</div>
+                <div class="date">RO / <?php echo $posts[0]['post_location'][0]->name; ?> / <?php echo $posts[0]['post_date'] ?></div>
+                <div class="description pb-3"><?php echo $posts[0]['short_description']; ?></div>
                 <a href="<?php echo $posts[0]['link']; ?>" class="read-more">READ MORE <span>→</span></a>
         </div>
     </div>
