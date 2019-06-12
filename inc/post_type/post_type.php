@@ -104,6 +104,8 @@
 		'show_in_rest' => true,
 		'show_admin_column' => true,
 		'query_var' => true,
+		'hierarchical' => true,
+		'has_archive' => true,
 		'rewrite' => array( 'slug' => 'story_category' )
 	);
 
@@ -135,6 +137,8 @@ add_action( 'init' ,  'story_taxonomy');
 		'show_in_rest' => true,
 		'show_admin_column' => true,
 		'query_var' => true,
+		'hierarchical' => true,
+	    'has_archive' => true,
 		'rewrite' => array( 'slug' => 'story_location' )
 	);
 

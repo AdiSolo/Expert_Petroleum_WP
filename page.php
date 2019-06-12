@@ -71,7 +71,7 @@
         </section>
         <section class="vh-100"></section>
 
-<!-- Stories Section -->
+        <!-- Page Content Section -->
         <section class="page">
             <div class="container">
                 <div class="col-md-12 px-0">
@@ -95,19 +95,22 @@
                     </div>
             </section>
 
-<!-- End Stories Section -->
+        <!-- End Page Content Section -->
 
-<!-- Related Stories Section -->
+        <!-- Related Stories and Custom Content Section -->
 
-<?php
-    $show_related_post = get_field('enable_related_posts');
-    $post_type = get_field('select_post_type');
-    $category_id = get_field('select_category');
-?>
+        <?php
+            $show_related_post = get_field('enable_related_posts');
+            $category_slug = get_field('select_category');
+            $posts_number = get_field('number_of_posts');
+            $show_custom_content = get_field('show_custom_content');
+            $sidebar_menu_title = get_field('menu_custom_content');
+        ?>
 
 
-<?php ( $show_related_post == true ) ? include(locate_template('templates/related-stories.php')) : ''; ?>
+        <?php ( $show_related_post == true && $show_custom_content == false ) ? include(locate_template('templates/related-stories.php')) :  include(locate_template('templates/custom_content.php')); ?>
 
-<!-- End Related Stories Section -->
-<?php get_footer(); ?>
+        <!-- End Related Stories and Custom Content Section -->
+
+        <?php get_footer(); ?>
 <!-- Footer Section -->

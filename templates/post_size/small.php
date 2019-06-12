@@ -4,8 +4,8 @@
             <img src="<?php echo $posts[$i]['image']; ?>" class="post-img" alt="">
         </div>
         <div class="col-6 col-md-6 align-title">
-            <h5> <a href="<?php the_permalink(); ?>"><?php echo $posts[$i]['title']; ?></a> </h5>
-            <div class="date">RO / <?php echo $posts[$i]['post_location'][0]->name; ?> / <?php echo $posts[$i]['post_date'] ?></div>
+            <h5> <a href="<?php echo $posts[$i]['link']; ?>"><?php echo $posts[$i]['title']; ?></a> </h5>
+            <div class="date"> <a href="<?php echo $posts[$i]['link']; ?>"><?php echo get_the_terms($post, 'story_location')[0]->name . ' / ' . get_the_date(); ?> <span>→</span></a></div>
 
         </div>
     </div>

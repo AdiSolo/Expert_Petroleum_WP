@@ -25,7 +25,7 @@
                 <div class="close-btn open-menu"> <img src="http://petroleum.highcontrast.ro/wp-content/uploads/2019/06/Close_Icon.svg" alt=""> </div>
             </div>
             <div class="container">
-            <div class="menu-logo"> <a href="<?php get_site_url(); ?>"><img src="http://petroleum.highcontrast.ro/wp-content/uploads/2019/06/XP_Logotype.svg" alt=""></a></div>
+            <div class="menu-logo"> <a href="<?php echo get_home_url(); ?>"><img src="http://petroleum.highcontrast.ro/wp-content/uploads/2019/06/XP_Logotype.svg" alt=""></a></div>
                 <?php
                   /* Primary navigation Header */
                     wp_nav_menu( array(

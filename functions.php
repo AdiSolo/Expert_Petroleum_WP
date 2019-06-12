@@ -7,6 +7,12 @@
 */
 
 include('inc/post_type/post_type.php');
+/*
+    ================================
+    Include Ajax Functions file
+    ================================
+*/
+include('inc/ajax.php');
 
 /*
     ================================
@@ -41,16 +47,19 @@ add_action( 'init', 'register_my_menus' );
 */
 
 function petroleum_style() {
-    wp_enqueue_style( 'bootsrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' );
+    wp_enqueue_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' );
     wp_enqueue_style( 'fonts-style', get_template_directory_uri() . '/assets/css/fonts.css' );
     wp_enqueue_style( 'style', get_stylesheet_uri() );
-
+    wp_enqueue_style( 'slick', get_template_directory_uri() . '/assets/css/slick.css' );
+    wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/assets/css/slick-theme.css' );
     wp_enqueue_style( 'accordion-style', get_template_directory_uri() . '/assets/css/accordion.css' );
 
     wp_deregister_script('jquery');
 	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js', array(), null, true);
     //wp_enqueue_script('jquery-ui', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array(), null, true);
-    wp_enqueue_script( 'custom', get_template_directory_uri() . '/assets//js/custom.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'slick', get_template_directory_uri() . '/assets/js/slick.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'custom', get_template_directory_uri() . '/assets/js/custom.js', array(), '1.0.0', true );
+
 }
 add_action( 'wp_enqueue_scripts', 'petroleum_style' );
 
@@ -152,9 +161,78 @@ function  print_the_taxonomies_name($taxonomy)
         'taxonomy' => $taxonomy,
         'hide_empty' => false,
     ]);
-    $count_terms = count($all_terms);
-
-     for ($i=0; $i <= $count_terms ; $i++) {
-        echo '<li>' . $all_terms[$i]->name . '</li>';
+    $output = "";
+    foreach ($all_terms as $term) {
+        // $output.= '<li> <a href="'. get_term_link( $term) .'">' . $term->name . '</a></li>';
+        $output.= '<li>' . $term->name . '</li>';
     }
+
+    echo $output;
+}
+
+/*
+    ================================
+    Limit String Output Words
+    ================================
+*/
+
+
+function limit_words($words, $limit) {
+       // Add 1 to the specified limit becuase arrays start at 0
+       $limit = $limit+1;
+       // Store each individual word as an array element
+       // Up to the limit
+       $words = explode(' ', $words, $limit);
+       // Shorten the array by 1 because that final element will be the sum of all the words after the limit
+       array_pop($words);
+       // Implode the array for output, and append an ellipse
+       $words = implode(' ', $words);
+       // Return the result
+       return $words. '...';
+}
+
+/*
+    ================================
+    Get Post By Post Type and Category
+    ================================
+*/
+function get_media_post($type, $cat_name, $number){
+    global $post; // required
+    $output = "";
+    $args= array('post_type'  => $type,   'category_name' =>  $cat_name , 'posts_per_page' => $number);
+    $media_posts = new WP_Query( $args );
+
+   if($media_posts->have_posts()){
+       while ($media_posts->have_posts()) {
+              $media_posts->the_post();
+              switch ( $cat_name ) {
+                  case 'news':
+                         $output.= get_template_part( 'templates/post_size/news');
+              break;
+              case 'reports':
+                          $output.= get_template_part( 'templates/post_size/report' );
+                  break;
+              case 'media':
+                           $output.= get_template_part( 'templates/post_size/news' );
+                          break;
+              }
+       }
+   } else {
+       $output.= "No posts";
+ }
+        return $output;
+}
+/*
+    ================================
+    Convert Byte to another Type
+    ================================
+*/
+function formatBytes($size, $precision = 0){
+    $unit = ['Byte','KB','MB','GB','TB','PB','EB','ZB','YB'];
+
+    for($i = 0; $size >= 1024 && $i < count($unit)-1; $i++){
+        $size /= 1024;
+    }
+
+    return round($size, $precision).' '.$unit[$i];
 }

@@ -27,13 +27,13 @@ $.fn.accordionTabs = function(options){
   return this.each(function(){
 
 
-  //Just test detection mediaqueries
-  if (matchMedia) {
-    var mq = window.matchMedia( "(max-width: 30em)" );
-    if(mq.matches){
-      return;
-    }
-  }
+  // //Just test detection mediaqueries
+  // if (matchMedia) {
+  //   var mq = window.matchMedia( "(max-width: 30em)" );
+  //   if(mq.matches){
+  //    // return;
+  //   }
+  // }
 
   $(this).on('click touchstart tap touch', '.open, .open-tab', function(e) {
 
@@ -58,12 +58,6 @@ $.fn.accordionTabs = function(options){
       $('.accordion-item').not(this).css('opacity', '0.4');
       $(this).find(".open").addClass('open-transform');
       $(this).find(".open").css('top', element_height + 55);
-
-
-      } else if(!$accordion.hasClass('tabs') || ($accordion.hasClass('tabs') && $accordion.find('>li:first-child').css('display') == 'list-item')){
-
-        $accordion.find('.is-open').removeClass('.is-open').css('height',0);
-        $(this).removeClass('active');
       }
 
       else {
@@ -72,11 +66,6 @@ $.fn.accordionTabs = function(options){
           $('.accordion-item').css('opacity', '1');
       }
     });
-    // $(".close-tabs, .open-transform").click(function(){
-    //     $('.is-open').css('height', '0');
-    //     $(this).find(".open").removeClass('open-transform');
-    //     $('.accordion-item').css('opacity', '1');
-    // });
   });
 }
 })(jQuery);
@@ -84,8 +73,7 @@ $.fn.accordionTabs = function(options){
 
 //USE
 $(document).ready(function () {
-
-$('.accordion').accordionTabs({"autoExpandFirst":true});
+    $('.accordion').accordionTabs({"autoExpandFirst":true});
 });
 
 
@@ -144,7 +132,7 @@ $(document).ready(function () {
 
                 parent.addClass("active");
                 $(this).addClass('rotate');
-        
+
                 if( parent_index % 2  == 0 ){
                     parent.css('float', 'left');
                     parent.prev().css('float', 'right');
@@ -165,15 +153,13 @@ $(document).ready(function () {
 
 /*
     ==================================================
-    Sidebar menu
+    Sidebar menu Scrool Section onScroll
     ==================================================
 */
 
 jQuery(document).ready(function($) {
     $('.second-menu li').on('click', function(){
     let trigger = $(this).attr('data-trigger');
-
-    //$('.second-menu li').removeClass('active');
 
     $('html, body').animate({
           scrollTop: $("." + trigger).offset().top - 100
@@ -183,6 +169,12 @@ jQuery(document).ready(function($) {
     });
 });
 
+/*
+    ==================================================
+    Add inline class to blocks on Mobile
+    ==================================================
+*/
+
 jQuery(document).ready(function($) {
     $('.wp-block-column').each( function() {
         if($(this).children().hasClass('m-inline1')){
@@ -190,6 +182,13 @@ jQuery(document).ready(function($) {
         }
     });
 });
+
+
+/*
+    ==================================================
+    Follow sidebar menu items onSroll
+    ==================================================
+*/
 
 jQuery(function ($) {
   $(document).ready(function() {
@@ -217,19 +216,77 @@ jQuery(function ($) {
         }); // END foreach
     }); // End Bind
   });
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
-      var prev = 0;
-      var $window = $(window);
-      var nav = $('.sticky');
-      var is_true = "";
-
-      $window.on('scroll', function(){
-        var scrollTop = $window.scrollTop();
-        var elementPos = nav.offset().top;
-
-            nav.toggleClass('fixed-menu-mobile', scrollTop < prev);
-            prev = scrollTop;
-      });
-  }
 });
+
+/*
+    ==================================================
+    Show / Hide Sidebar Menu onScroll on Mobile
+    ==================================================
+*/
+
+jQuery(document).ready(function($) {
+    var prev = 0;
+    var $window = $(window);
+    var nav = $('.sticky');
+    var elementPos = nav.offset().top;
+    var elementHeight = nav.height();
+
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        $window.on('scroll', function(){
+          var scrollTop = $window.scrollTop();
+          if ( scrollTop > elementPos + elementHeight){
+              nav.toggleClass('fixed-menu-mobile', scrollTop < prev);
+              prev = scrollTop;
+          }
+          else{
+              nav.removeClass('fixed-menu-mobile');
+          }
+        });
+    }
+});
+
+// jQuery(document).ready(function($) {
+//     /*
+//         ==================================================
+//         Sidebar menu
+//         ==================================================
+//     */
+//
+//     $('.load-more').on('click', function(e){
+//         e.preventDefault();
+//         let post_type = attr('data-type');
+//         let ajax_url = attr('data-url');
+//         let token = attr('data-token');
+//         let page = 2;
+// console.log(post_type + '   ' + url);
+//         var data =[
+//             'action'    : 'load_posts_by_ajax',
+//             'post_type' : post_type,
+//             'page'      : page,
+//             'security': token
+//         ];
+//
+//
+//  $.ajax({
+//   url : ajaxurl,
+//   type : 'post',
+//   data : {
+//       tag_name : tag_name,
+//      page : page,
+//      action : 'btn_load'
+//   },
+//   error : function (response){
+//      console.log(response);
+//
+//   },
+//   success : function(response){
+//      that.data('page',newPage);
+//      $('.tag-posts').append(response);
+//   }
+//
+//   });
+//
+//     });
+//
+// });

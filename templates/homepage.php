@@ -15,6 +15,10 @@
 
                 $submenu_title = get_field('menu_title');
 
+                $show_stories_grid = get_field('show_stories_grid');
+
+
+
                 if( have_rows('homepage_cover') ): // get settings for home cover section
                     while( have_rows('homepage_cover') ): the_row();
                         // vars
@@ -68,7 +72,7 @@
                                 </div>
 
                                 <div class="col-8 cover-bg-head px-0">
-                                    <img src="http://petroleum.highcontrast.ro/wp-content/uploads/2019/05/cover.png" alt="">
+                                    <img src="<?php echo $home_cover['image']; ?>" alt="cover">
                                 </div>
                             </div>
                         </div>
@@ -91,6 +95,7 @@
 
         <section class="vh-100"></section>
 
+<?php if($show_stories_grid == true) {?>
 <!-- Stories Section -->
         <section class="stories">
             <div class="container">
@@ -170,7 +175,7 @@
                     </div>
             </section>
             <!-- End Stories Section -->
-
+<?php } ?>
             <!-- Services Section -->
             <section class="services">
                 <div class="container">
@@ -189,61 +194,30 @@
                          ?>
                     </div>
                     <div class="services-title d-flex">
-                    <h2>
-                        <?php echo $services_data['title']; ?>
-                        <span class="line-img" style="top: <?php echo $service_line_pos_y; ?>%; left: <?php echo $service_line_pos_x; ?>%; transform: rotate(<?php echo $service_line_angle; ?>deg); ">
-                            <img src="<?php echo $service_line; ?>" alt="line"/>
-                        </span>
-                    </h2>
-                    </div>
+                    <div class="col-md-8">
 
-                    <div class=services-content>
-                        <div class="col-md-12 px-0">
-                            <div class="row">
-                                <div class="col-md-4 px-0 content-menu">
-                                        <h5>SERVICES</h5>
-                                        <ul>
-                                            <li>Mature to Nature</li>
-                                            <li>Production Enhancement</li>
-                                        </ul>
-
-                                </div>
-                                <div class="col-md-8 px-0">
-                                    <div class="row">
-                                        <div class="col-md-12 px-0">
-                                            <div class="row">
-                                              <article class="col-md-6 px-0 pb-4 small-post">  <!-- Small post -->
-                                                  <div class="row">
-                                                      <div class="col-6 col-md-6">
-                                                          <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
-                                                      </div>
-                                                      <div class="col-6 col-md-6 align-title">
-                                                          <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                                          <div class="date">Bucharest / Feb 2019 <span>→</span></div>
-
-                                                      </div>
-                                                  </div>
-                                              </article> <!-- End Small post -->
-                                              <article class="col-md-6 px-0 small-post">  <!-- Small post -->
-                                                  <div class="row">
-                                                      <div class="col-6 col-md-6">
-                                                          <img src="<?php echo get_template_directory_uri(); ?>/img/post-small1.png" class="post-img" alt="">
-                                                      </div>
-                                                      <div class="col-6 col-md-6 align-title">
-                                                          <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                                          <div class="date">Bucharest / Feb 2019 <span>→</span></div>
-
-                                                      </div>
-                                                  </div>
-                                              </article> <!-- End Small post -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <h2>
+                            <?php echo $services_data['title']; ?>
+                            <span class="line-img" style="top: <?php echo $service_line_pos_y; ?>%; left: <?php echo $service_line_pos_x; ?>%; transform: rotate(<?php echo $service_line_angle; ?>deg); ">
+                                <img src="<?php echo $service_line; ?>" alt="line"/>
+                            </span>
+                        </h2>
                         </div>
                     </div>
                 </div>
             </section>
-<!-- End Services Section -->
+            <!-- Related Stories and Custom Content Section -->
+
+            <?php
+                $show_related_post = get_field('enable_related_posts');
+                $category_slug = get_field('select_category');
+                $posts_number = get_field('number_of_posts');
+                $show_custom_content = get_field('show_custom_content');
+                $sidebar_menu_title = get_field('menu_custom_content');
+            ?>
+
+
+            <?php ( $show_related_post == true && $show_custom_content == false ) ? include(locate_template('templates/related-stories.php')) :  include(locate_template('templates/custom_content.php')); ?>
+
+            <!-- End Related Stories and Custom Content Section -->
 <?php get_footer(); ?>

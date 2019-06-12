@@ -39,7 +39,19 @@
 
                 endwhile;
             endif;
-    endif;
+                // get News&Media Content
+                if( have_rows('news_media_content') ):
+                    // loop through the rows of data
+                    while ( have_rows('news_media_content') ) : the_row();
+                        // display a sub field value
+                        $media_page_content[] = array(
+                            'title' => get_sub_field('title'),
+                            'cover_image' => get_sub_field('cover_image'),
+                        );
+                    endwhile;
+                endif;
+    endif; // end have posts
+
  ?>
     <body>
         <section class="">
@@ -101,10 +113,10 @@
 
                             </div>   <!-- Left Menu END -->
 
-                            <div class="col-md-8 content-block media-page">  <!-- Right Content START -->
+                            <div class="col-md-8 px-0 content-block media-page">  <!-- Right Content START -->
                                 <div class="row">
-                                    <div class="headline">
-                                        <div class=""></div>
+                                    <div class="col-md-12 headline">
+
                                         <h1>Key informations for the industry and the general public.</h1>
 
                                         <h4>
@@ -113,115 +125,48 @@
                                     </div>
 
                                     <section class="press-releases">
-                                        <div class="col-md-12 px-0">
+                                        <div class="col-md-12">
                                             <div class="image">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/img/media.png" alt="">
+                                                <img src="<?php echo $media_page_content[0]['cover_image']; ?>" alt="">
                                             </div>
                                         </div>
 
                                         <div class="title">
-                                            <h1>Press Releases</h1>
+                                            <h1><?php echo $media_page_content[0]['title']; ?></h1>
                                         </div>
-
-                                        <article class="col-md-12 px-0 pb-5 regular-post">  <!-- Press realeases -->
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/img/press1.png" class="post-img" alt="">
-                                                </div>
-                                                <div class="col-md-9 align-title">
-                                                    <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                                    <div class="date">Bucharest / Feb 2019</div>
-
-                                                </div>
-                                            </div>
-                                        </article> <!-- End Press realeases -->
-
-                                        <article class="col-md-12 px-0 pb-5 regular-post">  <!-- Press realeases -->
-                                            <div class="row">
-                                                <div class="col-md-3 ">
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/img/press2.png" class="post-img" alt="">
-                                                </div>
-                                                <div class="col-md-9 align-title">
-                                                    <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                                    <div class="date">Bucharest / Feb 2019</div>
-
-                                                </div>
-                                            </div>
-                                        </article> <!-- End Press realeases -->
-
-                                        <article class="col-md-12 px-0 pb-5 regular-post">  <!-- Press realeases -->
-                                            <div class="row">
-                                                <div class="col-md-3 ">
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/img/press3.png" class="post-img" alt="">
-                                                </div>
-                                                <div class="col-md-9 align-title">
-                                                    <h5>Decomissioning. It could be dirty and mean, we do it clean and green!</h5>
-                                                    <div class="date">Bucharest / Feb 2019</div>
-
-                                                </div>
-                                            </div>
-                                        </article> <!-- End Press realeases -->
+                                        <?php echo get_media_post('post', 'news', 6 ); ?>
+                                         <!-- End Press realeases -->
                                         <div class="see-all">
                                             <a href="#">See All <span>→</span></a>
                                         </div>
                                     </section>
 
 
-                                    <section class="reports">
+                                    <section class="col-md-12 reports">
                                         <div class="image">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/reports.png" alt="">
+                                            <img src="<?php echo $media_page_content[1]['cover_image']; ?>" alt="">
                                         </div>
                                         <div class="title">
-                                            <h1>Reports</h1>
+                                            <h1><?php echo $media_page_content[1]['title']; ?></h1>
                                         </div>
                                         <div class="row">
                                             <ul class="report-items">
-                                                <li>
-                                                    <div class="report">
-                                                        <img src="<?php echo get_template_directory_uri(); ?>/img/report1.png" alt="">
-                                                        <h5>Sustainability Report 2017</h5>
-                                                        <small class="file">PDF/5MB</small>
-                                                        <a href="#" class="download">↓</a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="report">
-                                                        <img src="<?php echo get_template_directory_uri(); ?>/img/report1.png" alt="">
-                                                        <h5>Sustainability Report 2017</h5>
-                                                        <small class="file">PDF/5MB</small>
-                                                        <a href="#" class="download">↓</a>
-                                                    </div>
-                                                </li>
-                                                <li>    <div class="report">
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/img/report1.png" alt="">
-                                                    <h5>Sustainability Report 2017</h5>
-                                                    <small class="file">PDF/5MB</small>
-                                                    <a href="#" class="download">↓</a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                     <div class="report">
-                                                         <img src="<?php echo get_template_directory_uri(); ?>/img/report1.png" alt="">
-                                                         <h5>Sustainability Report 2017</h5>
-                                                         <small class="file">PDF/5MB</small>
-                                                         <a href="#" class="download">↓</a>
-                                                    </div>
-                                                </li>
+                                                <?php echo get_media_post('post', 'reports', 4 ); ?>
                                             </ul>
                                         </div>
 
                                         <div class="see-all">
-                                            <a href="#">See All <span>→</span></a>
+                                            <a href="">See All <span>→</span></a>
                                         </div>
                                     </section>
 
-                                        <section class="media">
+                                        <section class="col-md-12 media">
                                             <article class="article">
                                                 <div class="image">
-                                                    <img src="<?php echo get_template_directory_uri(); ?>/img/media2.png" alt="">
+                                                    <img src="<?php echo $media_page_content[2]['cover_image']; ?>" alt="">
                                                 </div>
                                                 <div class="title">
-                                                    <h1>Media Library</h1>
+                                                    <h1><?php echo $media_page_content[2]['title']; ?></h1>
                                                 </div>
                                                 <div class="description">
                                                     <p class="pb-4">

@@ -158,7 +158,7 @@
                                 </div> <!-- End Stories posts -->
                                 <div class="col-md-6 px-0 ">
                                     <div class="col-md-6 more-stories">
-                                        <a href="<?php echo get_site_url(); ?>/stories">More Stories <span>→</span></a>
+                                        <a href="javascript:void(0)" class="load-more" data-type="story" data-url="<?php echo admin_url( 'admin-ajax.php' ); ?>" data-token="<?php echo wp_create_nonce("load_more_posts"); ?>">More Stories <span>→</span></a>
                                     </div>
                                 </div>
 
